@@ -1,0 +1,149 @@
+\documentclass[20pt,margin=1in,innermargin=-4.5in,blockverticalspace=-0.25in]{tikzposter}
+\geometry{paperwidth=46.81in,paperheight=33.11in} %this is a0, half width & half height to get a2
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{mathtools}
+\usepackage{cmll}
+\usepackage{graphicx}
+\usepackage{adjustbox}
+\usepackage{tikz}
+\usetikzlibrary{trees}
+\usetikzlibrary{graphs}
+\usepackage{enumitem}
+\usepackage[backend=biber,style=numeric]{biblatex}
+\usepackage{uomtheme}
+
+\usepackage{mwe} % for placeholder images
+
+\addbibresource{refs.bib}
+
+% set theme parameters
+\tikzposterlatexaffectionproofoff
+\usetheme{UoMTheme}
+\usecolorstyle{UoMStyle}
+
+\usepackage[scaled]{helvet}
+\renewcommand\familydefault{\sfdefault} 
+\usepackage[T1]{fontenc}
+
+
+\title{A Simple Example of a Coloured Cyclic Operad on a Non-Strict Compact Closed Category}
+\author{Yaxin Li, supervised by Marcy Robertson}
+\institute{University of Melbourne}
+\titlegraphic{\includegraphics[width=0.06\textwidth]{melblogo.png}}
+
+% begin document
+\begin{document}
+\maketitle
+\centering
+\begin{columns}
+    \column{0.32}
+    \block{This Instance of Coloured Cyclic Operads}{
+         This is a vast simplification of the technical, tedious definition from \cite{Drummond-Cole_Hackney_2021}. On a \emph{symmetric monoidal category}, a coloured cyclic operad is pretty much a way of labeling each object $A$ with at least one (possibly empty) ordered list $c_1,\cdots,c_n\in\mathfrak{C}$ of "colours" (i.e. elements of $\mathfrak{C}$, some set of colours with involution given by $(-)^\dagger$). The ordering is always assumed to be cyclic because the corollas do not have distinguished input or output branches. For example, if for $A$ and $B$ as labelled below, $c_1=d_4^\dagger$, 
+         
+         \begin{tikzpicture}[clockwise from = 0,level distance=5cm,
+  sibling angle=(360/5),]
+\node {$A$} child { node {$c_1$} };
+\node {$A$}
+  child { node {$c_1$} }
+  child { node {$c_2$} }
+  child { node {$c_3$} }
+  child { node {$c_4$} }
+  child { node {$c_5$} }
+;
+\end{tikzpicture}
+\begin{tikzpicture}[clockwise from = 0,level distance=5cm,
+  sibling angle=(360/6),]
+\node {$B$} child { node {$d_1$} };
+\node {$B$}
+  child { node {$d_1$} }
+  child { node {$d_2$} }
+  child { node {$d_3$} }
+  child { node {$d_4$} }
+  child { node {$d_5$} }
+  child { node {$d_6$} }
+;
+\end{tikzpicture}
+
+then we can take the composition $A\circ^1_4 B$ to be the object $A\otimes B$ with the label
+
+\begin{tikzpicture}[clockwise from = 0,level distance=5cm,
+  sibling angle=(360/9),]
+\node {$A\otimes B$} child { node {$d_1$} };
+\node {$A\otimes B$}
+  child { node {$d_1$} }
+  child { node {$d_2$} }
+  child { node {$d_3$} }
+  child { node {$c_2$} }
+  child { node {$c_3$} }
+  child { node {$c_4$} }
+  child { node {$c_5$} }
+  child { node {$d_5$} }
+  child { node {$d_6$} }
+;
+\end{tikzpicture}. The compositions must satisfy some further conditions, such as being commutative with the action of the appropriately-sized symmetric group permuting the branches, up to isomorphism. Clearly, the unit of the composition, and for this example, $\otimes$ as well, must have the empty list as one of its possible labels.
+    }
+    \block{Compact Closed Category}{For this example, the compact closed category is an example of a star-autonomous category such that $\otimes$ coincides with $A\parr B=(A^*\otimes B^*)^*$. It is sufficient for a star-autonomous category (equivalently, a linearly-distributive category with duals \cite{Cockett_Seely}) to have $(A\otimes B)^*\cong A^*\otimes B^*$ for all objects $A,B$, in order for it to be compact closed.
+    }
+
+    \column{0.36}
+    
+\block{The "Simple Example" $\mathcal{W}$ of a Compact Closed Category}{
+  This example is based on the "simple example" of a star-autonomous category with non-strict double-dual, constructed on p.23 of \cite{Cockett_Hasegawa_Seely_2006}. Let $\mathcal{W}$ be a symmetric monoidal category such that all unitors, associators, swaps, and several other structural maps are identity maps. The set of objects of $\mathcal{W}$ is $\begin{Bmatrix}
+    {}&I&{}\\
+    L&{}&R\cong R'
+  \end{Bmatrix}$, with
+  \begin{enumerate}
+    \item $I$ the unit and counit of $\otimes$
+    \item For each object $A$, $A\otimes A=A$
+    \item $L\otimes R=L\otimes R'=I$
+    \item $R\otimes R'=R'$
+    \item $L=R^*=R'^*,\quad R=L^*$
+    \item $R\cong R^*$, with $\cong$ not an identity map
+  \end{enumerate}
+  The above are enough to ensure that each object of $\mathcal{C}$ satisfy the "triangular equations" of \cite{Kelly_Laplaza_1980} on p.1, which we take to be the definition of a compact closed category.
+}
+\block{Finding a Suitable Set of Colours for $\mathcal{W}$}{
+Since the isomorphism between $R$ and $R'$ is not an identity map, we likely cannot put a coloured cyclic operad structure by labelling the objects of $\mathcal{W}$ in a "tautological" way, as in example 2.9 of \cite{Drummond-Cole_Hackney_2021}:
+\[P(a_0,\cdots,a_n)\coloneqq\mathcal{V}(a_0\otimes\cdots\otimes a_n,\bot)\]
+where $\mathcal{V}$ is a star-autonomous category with strict double-dual, and the "tautological" is in the sense of the object $\mathcal{V}(a_0\otimes\cdots\otimes a_n,\bot)$ in \textbf{Sets} (and in a way, $a_0\otimes\cdots\otimes a_n$ as well) being labelled by $a_0,\cdots,a_n$.
+}
+\block{The Category of Complemented Objects}{
+  This construction comes from \cite{Cockett_Hasegawa_Seely_2006}. The category of complemented objects $\mathbf{C}(\mathcal{C})$ of the compact closed category $\mathcal{C}$, has
+  \begin{enumerate}
+    \item as objects, the triples $(A,A',\tau_{A})$ with $A'\overset{\tau_{A}}{\longrightarrow}A^*$ an isomorphism
+    \item $(I,I,\operatorname{id}_I)$ as the unit
+    \item $(A,A',\tau_{A})\otimes(B,B',\tau_{B})\coloneqq\left(A\otimes B,A'\parr B',A'\parr B'\xrightarrow{\tau_A\parr\tau_B}A^*\parr B^*\xrightarrow{\cong}(A\otimes B)^*\right)$
+  \end{enumerate}
+  For $\mathcal{W}$, we have
+  \[\operatorname{Obj}(\mathbf{C}(\mathcal{W}))=\begin{Bmatrix}
+    {}&(I,I,\operatorname{id})&{}&{}\\
+    (L,R,\operatorname{id})&{}&(R,L,\operatorname{id})&{}\\
+    (L,R',\cong)&{}&{}&(R',L,\operatorname{id})
+  \end{Bmatrix}\]
+which we will use as the involutive set of colours, since $\mathbf{C}(\mathcal{W})$ has a strict double-dual \cite{Cockett_Hasegawa_Seely_2006}. After brute force calculating the $otimes$-table of $\mathbf{C(\mathcal{W})}$, we can see that if we use as "generators"
+\begin{align*}
+  I&=P((I,I,\operatorname{id}))&\\
+  L&=P((L,R,\operatorname{id}))&L=P(L,R',\cong)\\
+  R&=P((R,L,\operatorname{id}))&\\
+  R'&=P((R',L,\operatorname{id}))&
+\end{align*}
+and define $P(\tilde{A},\tilde{B})=P(\tilde{A}\otimes\tilde{B})$ for objects $\tilde{A},\tilde{B}$, in $\mathbf{C}(\mathcal{W})$, we will see that $\mathcal{W}$ is a $\mathbf{C}(\mathcal{W})$-coloured cyclic operad.
+}
+    \column{0.32}
+    \block{Remarks}{
+        Note that in example 2.9 of \cite{Drummond-Cole_Hackney_2021}, the coloured cyclic operad structure is on the \emph{image} of a \emph{contravariant} functor, so I might have missed some important things in this choice of $\mathcal{W}$. Perhaps this naive way of using $\mathbf{C}(\mathcal{W})$ as the involutive set of colours would not work in general if $\mathcal{W}$ had more non-identity structural morphisms. These sacrifices were made to fit everything onto one a2 poster.
+    }
+    
+    \block{References}{
+        \vspace{-1em}
+        \begin{footnotesize}
+        \printbibliography[heading=none]
+        \end{footnotesize}
+    }
+\end{columns}
+\end{document}
