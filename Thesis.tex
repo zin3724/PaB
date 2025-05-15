@@ -165,6 +165,7 @@
 
 \pagestyle{fancy}  % Finally, use the "fancy" page style to implement the FancyHdr headers
 \setlength{\headheight}{15pt}
+\setstretch{1.0}
 %% ----------------------------------------------------------------
 % The Abstract Page
 \input{Abstract.tex}
@@ -204,7 +205,6 @@
 
 %% ----------------------------------------------------------------
 % \setstretch{1.5}  % Set the line spacing to 1.5, this makes the following tables easier to read
-\setstretch{2.0}  % Set the line spacing to 2.0
 \clearpage  % Start a new page
 \lhead{\emph{Abbreviations}}  % Set the left side page header to "Abbreviations"
 \listofsymbols{ll}  % Include a list of Abbreviations (a table of two columns)
@@ -248,6 +248,7 @@ $\omega$ & angular frequency & rads$^{-1}$ \\
 % Include the chapters of the thesis, as separate files
 % Just uncomment the lines as you write the chapters
 
+\setstretch{2.0}  % Set the line spacing to 2.0
 \input{Chapter1} % Introduction
 
 %\input{Chapter2} % Background Theory 
