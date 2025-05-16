@@ -1,8 +1,8 @@
-\chapter{Introduction}
+\chapter{Backstory}
 \lhead{\emph{Chapter 1}}
 Lorem $\mathbb{k}$ ipsum dolor sit amet, consectetur adipiscing elit. Vivamus at pulvinar nisi. Phasellus hendrerit, diam placerat interdum iaculis, mauris justo cursus risus, in viverra purus eros at ligula. Ut metus justo, consequat a tristique posuere, laoreet nec nibh. Etiam et scelerisque mauris. Phasellus vel massa magna. Ut non neque id tortor pharetra bibendum vitae sit amet nisi. Duis nec quam quam, sed euismod justo. Pellentesque eu tellus vitae ante tempus malesuada. Nunc accumsan, quam in congue consequat, lectus lectus dapibus erat, id aliquet urna neque at massa. Nulla facilisi. Morbi ullamcorper eleifend posuere. Donec libero leo, faucibus nec bibendum at, mattis et urna. Proin consectetur, nunc ut imperdiet lobortis, magna neque tincidunt lectus, id iaculis nisi justo id nibh. Pellentesque vel sem in erat vulputate faucibus molestie ut lorem.
 See \S2.2, (2) of \cite{schneps_grothendieck-teichmuller_1997}
-\section{A Section}
+\section{The Teichm\"uller tower}
 
 Quisque tristique urna in lorem laoreet at laoreet quam congue. Donec dolor turpis, blandit non imperdiet aliquet, blandit et felis. In lorem nisi, pretium sit amet vestibulum sed, tempus et sem. Proin non ante turpis. Nulla imperdiet fringilla convallis. Vivamus vel bibendum nisl. Pellentesque justo lectus, molestie vel luctus sed, lobortis in libero. Nulla facilisi. Aliquam erat volutpat. Suspendisse vitae nunc nunc. Sed aliquet est suscipit sapien rhoncus non adipiscing nibh consequat. Aliquam metus urna, faucibus eu vulputate non, luctus eu justo.
 
@@ -10,8 +10,75 @@ Quisque tristique urna in lorem laoreet at laoreet quam congue. Donec dolor turp
 
 Donec urna leo, vulputate vitae porta eu, vehicula blandit libero. Phasellus eget massa et leo condimentum mollis. Nullam molestie, justo at pellentesque vulputate, sapien velit ornare diam, nec gravida lacus augue non diam. Integer mattis lacus id libero ultrices sit amet mollis neque molestie. Integer ut leo eget mi volutpat congue. Vivamus sodales, turpis id venenatis placerat, tellus purus adipiscing magna, eu aliquam nibh dolor id nibh. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed cursus convallis quam nec vehicula. Sed vulputate neque eget odio fringilla ac sodales urna feugiat.
 
-\section{Another Section}
+\section{The moduli space of Riemann spheres with \(n\) marked points}
 
 Phasellus nisi quam, volutpat non ullamcorper eget, congue fringilla leo. Cras et erat et nibh placerat commodo id ornare est. Nulla facilisi. Aenean pulvinar scelerisque eros eget interdum. Nunc pulvinar magna ut felis varius in hendrerit dolor accumsan. Nunc pellentesque magna quis magna bibendum non laoreet erat tincidunt. Nulla facilisi.
 
 Duis eget massa sem, gravida interdum ipsum. Nulla nunc nisl, hendrerit sit amet commodo vel, varius id tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ac dolor est. Suspendisse ultrices tincidunt metus eget accumsan. Nullam facilisis, justo vitae convallis sollicitudin, eros augue malesuada metus, nec sagittis diam nibh ut sapien. Duis blandit lectus vitae lorem aliquam nec euismod nisi volutpat. Vestibulum ornare dictum tortor, at faucibus justo tempor non. Nulla facilisi. Cras non massa nunc, eget euismod purus. Nunc metus ipsum, euismod a consectetur vel, hendrerit nec nunc.
+
+\section{The operad of little 2-disks}
+
+Phasellus nisi quam, volutpat non ullamcorper eget, congue fringilla leo. Cras et erat et nibh placerat commodo id ornare est. Nulla facilisi. Aenean pulvinar scelerisque eros eget interdum. Nunc pulvinar magna ut felis varius in hendrerit dolor accumsan. Nunc pellentesque magna quis magna bibendum non laoreet erat tincidunt. Nulla facilisi.
+
+Duis eget massa sem, gravida interdum ipsum. Nulla nunc nisl, hendrerit sit amet commodo vel, varius id tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ac dolor est. Suspendisse ultrices tincidunt metus eget accumsan. Nullam facilisis, justo vitae convallis sollicitudin, eros augue malesuada metus, nec sagittis diam nibh ut sapien. Duis blandit lectus vitae lorem aliquam nec euismod nisi volutpat. Vestibulum ornare dictum tortor, at faucibus justo tempor non. Nulla facilisi. Cras non massa nunc, eget euismod purus. Nunc metus ipsum, euismod a consectetur vel, hendrerit nec nunc.
+
+\section{ChatGPT says}
+\setstretch{1.0}
+Thanks! I'll look into what it means for $\pi_1(E_2)$ to be a model for the Teichm\"uller tower, including how this connection is made precise in algebraic topology and geometry.
+I'll get back to you with a detailed explanation and any key references that clarify this relationship.
+
+
+\subsection{Little 2-Disks Operad and the Grothendieck-Teichm\"uller Tower}
+
+The Teichm\"uller tower is the profinite system formed by the fundamental groups of the moduli stacks $\mathcal{M}_{g,n}$ of algebraic curves (genus $g$, $n$ marked points) and the natural maps between them (induced by forgetting or gluing marked points).  By a theorem of Grothendieck, the geometric (\'etale) fundamental group of $\mathcal{M}_{g,n}$ is canonically the profinite completion of the mapping-class group $\Gamma_{g,n}$ of a genus-$g$ surface with $n$ punctures \cite{de_brito_operads_2019}. Thus the Teichm\"uller tower can be described purely in topological terms as the tower of all profinite completions $\widehat\Gamma_{g,n}$, together with the natural homomorphisms induced by inclusions of subsurfaces \cite{borghi_lecture_2025}. In genus 0 this amounts to the tower of profinite mapping-class groups of spheres with marked points.  One then defines the (profinite) Grothendieck-Teichm\"uller group $\widehat{\mathsf{GT}}$ as the group of automorphisms of this tower commuting with the operadic/gluing maps \cite{de_brito_operads_2019}. For example, Ihara showed that the Galois action on $\pi_1(\mathcal{M}_{0,4})\cong\widehat F_2$ lands in $\widehat{\mathsf{GT}}$ \cite{de_brito_operads_2019}, reflecting the faithful action of $\mathrm{Gal}(\overline\bQ/\bQ)$ on the whole Teichm\"uller tower.
+
+The little 2-disks operad $E_2$ is the topological operad whose space of $n$-ary operations $E_2(n)$ is the space of configurations of $n$ disjoint labeled embeddings of the unit disk into itself.  Concretely, $E_2(n)$ is homotopy equivalent to the configuration space of $n$ labeled points in $\bR^2$ (or $\bC$).  A classical result (Arnol'd, Fadell-Neuwirth, etc.) is that each such configuration space is a $K(\pi,1)$ with fundamental group the braid group on $n$ strands.  Equivalently, each $E_2(n)$ has no higher homotopy, so the topological operad $E_2$ is fully captured by its fundamental groupoid operad.  In fact one can show:
+
+\begin{enumerate}
+    \item Claim: The space $E_2(n)$ is a $K(\pi,1)$ with $\pi_1(E_2(n))\cong B_n$ (the braid group on $n$ strands).  In particular, there are no nontrivial higher homotopy groups.  Thus the operad $E_2$ is (homotopy equivalent to) the operad in groupoids obtained by taking the fundamental groupoid of each $E_2(n)$ \cite{C_2014}.
+\end{enumerate}
+
+This means that, up to homotopy, $E_2$ is an operad whose $n$-ary part is essentially the braid group $B_n$, with operadic composition given by “inserting” braids into one another (the usual operadic substitution corresponds to concatenating configuration braids).
+
+Moduli of genus 0 curves as an operad
+
+The moduli spaces of genus-0 curves themselves carry an operadic structure.  More precisely, let $\overline{\mathcal{M}}_{0,n+1}$ denote the Deligne-Mumford moduli of stable genus-0 curves with $n+1$ marked points.  Then the collection
+
+$$
+  \{\overline{\mathcal{M}}_{0,n+1}\}_{n\ge1}
+$$
+
+forms an operad in topological spaces (with no $0$-ary part): the $n+1$ points are viewed as $n$ inputs and one output, and operadic composition is given by gluing the “output” of one curve to an input of another (creating a node).  In more detail:
+
+\begin{enumerate}
+    \item For each $n\ge1$, $\overline{\mathcal{M}}_{0,n+1}$ is a (compact) complex manifold of dimension $n-2$.  By a well-known result, for $n\ge3$ it is isomorphic (analytically) to the configuration space of $n+1$ distinct points on $\bC P^1$ modulo $\mathrm{PGL}_2(\bC)$.
+    \item The operad structure is given as follows: if we have one stable curve with $n+1$ markings and another with $m+1$ markings, we glue the marked output of one to the $k$-th input of the other.  The resulting nodal curve lies in $\overline{\mathcal{M}}_{0,n+m}$.  Composition is associative and $\Sigma_n$-equivariant in the obvious way.
+\end{enumerate}
+
+Thus $\overline{\mathcal{M}}_{0,\bullet+1}$ is a modular operad (or in fact a cyclic operad) encoding the combinatorics of stable genus-0 curves.  At the level of fundamental groups, this operad structure corresponds to the usual inclusions and gluing of mapping-class groups of spheres with punctures.
+
+A key connection to the little disks operad was established by Drummond-Cole: there is a homotopy pushout diagram of operads relating the framed little 2-disks operad $FD$ to the moduli operad $\overline{\mathcal{M}}*{0,\bullet+1}$.  Concretely, $FD(n)$ differs from the non-framed $E_2(n)$ by allowing each little disk to rotate (so $FD(n)\simeq E_2(n)\times (S^1)^n$).  Drummond-Cole showed that “killing” the $S^1$-rotation in arity 1 in $FD$ yields an operadic quotient equivalent to the moduli operad.  In other words, the genus-0 surface operad $M$ (classifying spaces of spheres with boundary circles) maps onto ${\overline{\mathcal{M}}*{0,n+1}}$ by collapsing the boundary circles; by a theorem of Drummond-Cole, this map is an operadic homotopy quotient obtained by contracting the circle in arity 1.  Equivalently, one can say the genus-0 surface operad $M$ (or $FD$) and the moduli operad $\overline{\mathcal{M}}_{0,\*+1}$ become equivalent once one trivializes the $S^1$-factor.
+
+Because of this equivalence, the fundamental group operad of $E_2$ (or of framed $E_2$) “models” the tower of mapping class groups for genus 0.  Indeed, as noted above, $E_2(n)$ has $\pi_1$ the $n$-strand braid group $B_n$.  Topologically, a sphere with $n+1$ boundary components has a mapping class group which fits in a split extension
+
+$$
+  1 \;\to\; \bZ^n \;\to\; \Gamma_{0,n}\bigl(\text{with boundary}\bigr) \;\to\; \Gamma_{0,n}\bigl(\text{punctured sphere}\bigr)\;\to\;1,
+$$
+
+where the $\bZ^n$ comes from rotating each boundary circle.  Collapsing the boundaries recovers the pure mapping-class group of the sphere with $n$ punctures.  But as operads these spheres-with-boundaries ${\Gamma_{0,n}}$ assemble exactly into an operad homotopy equivalent to the little disks operad.  Put succinctly:
+
+\begin{enumerate}
+    \item The mapping-class groups of genus-0 surfaces with boundaries form a modular operad under gluing of boundary components.  Its genus-0 part (spheres with $n+1$ boundary components) is often called the genus-0 surface operad.
+    \item This surface operad $M$ is homotopy equivalent to the (framed) little disks operad $FD$ (and hence to $E_2$ up to the extra $S^1$-factors).
+\end{enumerate}
+
+Since each $E_2(n)\simeq FD(n)$ is $K(\pi,1)$ with $\pi=B_n$, it follows that taking fundamental groupoids recovers the pure braid operad (or more precisely the operad of pure braids, which is also the operad of classifying spaces of these mapping-class groups).  In this sense $\pi_1(E_2)$ is exactly an operadic model for the genus-0 Teichm\"uller tower: its $n$th piece is the (profinite) mapping class group of a sphere with $n+1$ points (or boundaries).  Hatcher-Lochak-Schneps originally described an “operadic” version of the Teichm\"uller tower by using boundary-based mapping-class groups, and one recovers the same structure from $E_2$.
+
+\subsection{Profinite completion and the Grothendieck-Teichm\"uller group}
+
+Because each $E_2(n)$ (and each moduli space $\overline{\mathcal{M}}*{0,n+1}$) is defined over $\bQ$, one can consider its profinite completion.  The result is that $\widehat{E_2}$ (the collection of profinite homotopy types of $E_2(n)$) is an operad in profinite spaces whose fundamental pro-groups are the profinite braid groups $\widehat B_n$ (equivalently, the profinite mapping class groups $\widehat\Gamma*{0,n+1}$).  A remarkable result of Boavida de Brito-Horel-Robertson is that the profinite automorphism group of this entire profinite operad is isomorphic to the profinite Grothendieck-Teichm\"uller group.  Equivalently, any automorphism of the little-disks operad up to homotopy (in the profinite or completed sense) comes from an element of $\widehat{\mathsf{GT}}$.  In their words: “the group $\widehat{\mathsf{GT}}$ is isomorphic to the group of homotopy automorphisms of the profinite completion of the genus zero surface operad”.  This shows that $\pi_1(E_2)$ (profinite fundamental groupoid of $E_2$) indeed encodes the full genus-0 Teichm\"uller tower and its $\mathrm{Gal}(\overline\bQ/\bQ)$-action.  In particular, $\mathrm{Gal}(\overline\bQ/\bQ)$ acts faithfully on the profinite $\pi_1$ of $E_2$ (equivalently on the profinite braids operad) via its embedding into $\widehat{\mathsf{GT}}$.
+
+Summarizing, the little 2-disks operad $E_2$ (or its framed version) provides a topological model for the genus-0 part of the Teichm\"uller tower.  Its operadic structure mirrors the gluing of genus-0 curves, its homotopy groups are the braid/mapping-class groups, and its profinite completion carries the $\widehat{\mathsf{GT}}$-action.  For further details see, e.g., Boavida de Brito-Horel-Robertson, and Hatcher-Lochak-Schneps (2000) or survey articles on Grothendieck-Teichm\"uller theory.
+
+Key references: The operadic realization of the Teichm\"uller tower is explained in Hatcher-Lochak-Schneps, “On the Teichm\"uller tower of mapping class groups,” J. Reine Angew. Math. 521 (2000), and in lecture notes by Borghi-Robertson.  The work of Boavida de Brito-Horel-Robertson (2020) establishes rigorously that $\widehat{\mathsf{GT}}$ equals the automorphism group of the profinite little-disks operad.  Finally, the fact that $E_2(n)$ is $K(\pi,1)$ with $\pi$ a braid group is classical.  These and other sources give a thorough account of how $\pi_1(E_2)$ encodes the genus-zero Grothendieck-Teichm\"uller structures. 
+\setstretch{2.0}
