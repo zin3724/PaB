@@ -31,6 +31,7 @@
 \usepackage{amsmath,mathtools,amssymb,amsthm,cancel,mathdots,tikz-cd,xfrac,xcolor,amsfonts,esint}
 \usepackage[all]{xy}
 \usepackage[mathscr]{euscript}
+% \usepackage[style=alphabetic]{biblatex}
 \tikzcdset{scale cd/.style={every label/.append style={scale=#1},
     cells={nodes={scale=#1}}}}
 % \setlength{\parindent}{0in}
@@ -46,6 +47,7 @@
 \makeatother
 \renewcommand{\Re}{\mathrm{Re}}
 \renewcommand{\Im}{\mathrm{Im}}
+\newcommand{\defeq}{\overset{\mathrm{def}}{=}}
 \newcommand{\bA}{\mathbb{A}}
 \newcommand{\bC}{\mathbb{C}}
 \newcommand{\bF}{\mathbb{F}}
@@ -75,6 +77,7 @@
 \DeclareMathOperator{\tr}{\mathrm{tr}}
 \DeclareMathOperator{\proj}{\mathrm{proj}}
 \DeclareMathOperator{\End}{\mathrm{End}}
+\DeclareMathOperator{\Aut}{\mathrm{Aut}}
 \DeclareMathOperator{\Hom}{\mathrm{Hom}}
 \DeclareMathOperator{\Ext}{\mathrm{Ext}}
 \DeclareMathOperator{\Tor}{\mathrm{Tor}}
@@ -252,8 +255,10 @@
 % Include the chapters of the thesis, as separate files
 % Just uncomment the lines as you write the chapters
 
-\setstretch{1.0}  % Set the line spacing to 2.0 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\input{Chapter1} % The Backstory of PaB
+\setstretch{1.0}  % Set the line spacing to whatever
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% the body %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% I'll leave it single spaced for now so that I can choose the right line spacing from 1.5 to 2.0 to make it into the desired page range
+\input{Chapter1} % The Backstory of PaB; it's a summary with citations of stuff to study later. Details will be in the appendix if I'm expected to write them up.
 
 %\input{Chapter2} % The action of GT^ on PaB
 
@@ -287,8 +292,8 @@
 \label{Bibliography}
 \setstretch{1.0}
 \lhead{\emph{Bibliography}}  % Change the left side page header to "Bibliography"
-\bibliographystyle{unsrtnat}  % Use the "unsrtnat" BibTeX style for formatting the Bibliography
-\bibliography{Bibliography}  % The references (bibliography) information are stored in the file named "Bibliography.bib"
+\bibliographystyle{alpha}  % Use the "alpha" BibTeX style for formatting the Bibliography so that citations don't look like equivalence classes of numbers
+\bibliography{Bibliography.bib}  % The references (bibliography) information are stored in the file named "Bibliography.bib"
 
 \end{document}  % The End
 %% ----------------------------------------------------------------
