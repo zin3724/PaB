@@ -1,7 +1,8 @@
-\chapter{\texorpdfstring{Algebras of $\PaB$}{Algebras of P\^aB}}
+\chapter{\texorpdfstring{Algebras of $\PaB$}{Algebras of PaB}}
 \lhead{\emph{algebras of $\PaB$}}
+\section{Braided Monoidal Categories}
 \begin{definition}
-	A category $\sC$ with a bifunctor $-\otimes-:\sC\times\sC\to\sC$ (the monoidal product), unit object $\mathbb{1}$, and natural isomorphisms
+	A category $\sC$ with a bifunctor $-\otimes-:\sC\times\sC\to\sC$ (the monoidal, or tensor product), unit object $\mathbb{1}$, and natural isomorphisms
 	\begin{align}
 		&a:(-\otimes-)\otimes-\Rightarrow-\otimes(-\otimes-)\\
 		&l:\mathbb{1}\otimes-\Ra\id_\sC & r:-\otimes\mathbb{1}\Ra\id_{sC}
@@ -51,7 +52,7 @@
 	\end{enumerate}
 \end{definition}
 \begin{definition} \label{braidedMonoidalCategory}
-	If $(\sC,\mathbb{1},a,l,r)$ is a monoidal category with a natural transformation $b_{x,y}:x\otimes y\to y\otimes x$, then it is \emph{braided} if it satisfies the hexagon identities, i.e. the following diagrams commute
+	If $(\sC,\mathbb{1},a,l,r)$ is a monoidal category with a natural isomorphism $b_{x,y}:x\otimes y\to y\otimes x$, then it is \emph{braided} if it satisfies the hexagon identities, i.e. the following diagrams commute
 	\[
 \begin{tikzcd}
 	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAAoAPAHW4jwC28AAQBPAJS9+WIXGEAvEAF9S6TLnyEUARnJVajFmx59B8dqKlm588ctUgM2PASIAmPdXrNWiDpdMZEVsrILlOezVnTSIybX1vIz8LUNlhTklAtMUVKI1XHVJ4r0NfEADpWS5U4Ltcx3UXLWQPYoMfNgrrdnka8Lr9GCgAc3giUAAzACcIASQyEBwIJABmEo6-ACNea14sKAB9XjgAYRBqBjpNmAYABUaYvwYYCZxIkGnZ+eolpF12pIgOjnECXa53B4FUEvN71T5zRD-X6IDwAsqbEFgm73aJQ56vd7wpCo5EAVnWgOBFyu2MhWmhBLhMwRa0Wy0QABYKWUqaCaRDcfT8bCHETOT92eS+eCcfkhTCQYkyntDscTn1hBilBQlEA
@@ -64,4 +65,13 @@
 x\otimes(y\otimes z) \arrow[r, "a^{-1}"] \arrow[d, "\id_\sC\otimes b"] & (x\otimes y)\otimes z \arrow[r, "b"]               & z\otimes(x\otimes y) \arrow[d, "a^{-1}"] \\
 x\otimes(z\otimes y) \arrow[r, "a^{-1}"]                               & (x\otimes z)\otimes y \arrow[r, "b\otimes\id_\sC"] & (z\otimes x)\otimes y                   
 \end{tikzcd}\]
+\end{definition}
+
+The next theorem states that natural isomorphisms that come from composing associator and unitor components are unique.
+\begin{theorem}[Mac Lane's Coherence Theorem]
+	Suppose
+\end{theorem}
+\section{\texorpdfstring{The Operad $\PaB$ of Parenthesized Braids}{The Operad PaB of Parenthesized Braids}}
+\begin{definition}[operad]
+	An operad in a monoidal category $\sC$
 \end{definition}
