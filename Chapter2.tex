@@ -1,2 +1,67 @@
-\chapter{\texorpdfstring{algebras of $\widehat{PaB}$}{algebras of P\^aB}}
-\lhead{\emph{algebras of \widehat{PaB}}}
+\chapter{\texorpdfstring{Algebras of $\PaB$}{Algebras of P\^aB}}
+\lhead{\emph{algebras of $\PaB$}}
+\begin{definition}
+	A category $\sC$ with a bifunctor $-\otimes-:\sC\times\sC\to\sC$ (the monoidal product), unit object $\mathbb{1}$, and natural isomorphisms
+	\begin{align}
+		&a:(-\otimes-)\otimes-\Rightarrow-\otimes(-\otimes-)\\
+		&l:\mathbb{1}\otimes-\Ra\id_\sC & r:-\otimes\mathbb{1}\Ra\id_{sC}
+	\end{align}
+	 respectively called the associator, left unitor, right unitor, is \emph{monoidal} if when we write $\otimes$ to act componentwise on natural transformations,
+	\begin{enumerate}
+	\item the triangle identity is satisfied, i.e. $r\otimes\id_\sC=(\id_\sC\otimes l)\circ a$
+	\item the pentagon identity holds, i.e. for all $w,x,y,z\in\Obj(\sC)$, the following diagram commutes
+	
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+\[
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,497); %set diagram left start at 0, and has height of 497
+
+%Straight Lines [id:da8091689343428804] 
+\draw    (162,295.1) -- (207.41,272.69) ;
+\draw [shift={(209.2,271.8)}, rotate = 153.73] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da5599598183630712] 
+\draw    (348,271.2) -- (387.29,295.06) ;
+\draw [shift={(389,296.1)}, rotate = 211.27] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da8391035848401762] 
+\draw    (137,322.2) -- (163.56,347.71) ;
+\draw [shift={(165,349.1)}, rotate = 223.85] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da28460978615375354] 
+\draw    (248,364.1) -- (311,366.04) ;
+\draw [shift={(313,366.1)}, rotate = 181.76] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da9551788148488187] 
+\draw    (380,353.1) -- (407.49,329.41) ;
+\draw [shift={(409,328.1)}, rotate = 139.24] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+
+% Text Node
+\draw (74,299.4) node [anchor=north west][inner sep=0.75pt]    {$(( w\otimes x) \otimes y) \otimes z$};
+% Text Node
+\draw (218,257.4) node [anchor=north west][inner sep=0.75pt]    {$( w\otimes x) \otimes ( y\otimes z)$};
+% Text Node
+\draw (356,301.4) node [anchor=north west][inner sep=0.75pt]    {$w\otimes ( x\otimes ( y\otimes z))$};
+% Text Node
+\draw (122,355.4) node [anchor=north west][inner sep=0.75pt]    {$( w\otimes ( x\otimes y)) \otimes z$};
+% Text Node
+\draw (319,357.4) node [anchor=north west][inner sep=0.75pt]    {$w\otimes (( x\otimes y) \otimes z)$};
+
+
+\end{tikzpicture}
+\]
+	or as natural transformations, $a\circ a=(\id_\sC\otimes a)\circ a\circ(a\otimes\id_\sC)$
+	\end{enumerate}
+\end{definition}
+\begin{definition} \label{braidedMonoidalCategory}
+	If $(\sC,\mathbb{1},a,l,r)$ is a monoidal category with a natural transformation $b_{x,y}:x\otimes y\to y\otimes x$, then it is \emph{braided} if it satisfies the hexagon identities, i.e. the following diagrams commute
+	\[
+\begin{tikzcd}
+	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAAoAPAHW4jwC28AAQBPAJS9+WIXGEAvEAF9S6TLnyEUARnJVajFmx59B8dqKlm588ctUgM2PASIAmPdXrNWiDpdMZEVsrILlOezVnTSIybX1vIz8LUNlhTklAtMUVKI1XHVJ4r0NfEADpWS5U4Ltcx3UXLWQPYoMfNgrrdnka8Lr9GCgAc3giUAAzACcIASQyEBwIJABmEo6-ACNea14sKAB9XjgAYRBqBjpNmAYABUaYvwYYCZxIkGnZ+eolpF12pIgOjnECXa53B4FUEvN71T5zRD-X6IDwAsqbEFgm73aJQ56vd7wpCo5EAVnWgOBFyu2MhWmhBLhMwRa0Wy0QABYKWUqaCaRDcfT8bCHETOT92eS+eCcfkhTCQYkyntDscTn1hBilBQlEA
+(x\otimes y)\otimes z \arrow[d, "b\times\id_\sC"] \arrow[r, "a"] & x\otimes(y\otimes z) \arrow[r, "b"]                & (y\otimes z)\otimes x \arrow[d, "a"] \\
+(y\otimes x)\otimes z \arrow[r, "a"]                             & y\otimes(x\otimes z) \arrow[r, "\id_\sC\otimes b"] & y\otimes(z\otimes x)                
+\end{tikzcd}
+	\]
+	\[\begin{tikzcd}
+		% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAA8AdTiPAW3gAKAJ7deWAXAAEALwCUIAL6l0mXPkIoAjOSq1GLNoK49+8KcLliz0mUpUgM2PASIAmXdXrNWiEDOsJIRNxSQsFZVVnDXdSLT1vQz9BANMg6XYrNLDheyj1VxQyeK8DXw5AyRTK80s8xzUXTWQdEv0fIxCbWSzQ2qU9GCgAc3giUAAzACcIPiQyEBwIJB12pJA6AD1gAFotRXrp2ZXqJaQPNfKAI0OZucQLs8QAZlKOvy3d-dvjxAWngAsb3W3CwUAA+tw4ABhGrSG6REBHe5AxbLRAAVmB5U+ewOiORSCxaKQr0ubCucNBEKh0IGiiAA
+x\otimes(y\otimes z) \arrow[r, "a^{-1}"] \arrow[d, "\id_\sC\otimes b"] & (x\otimes y)\otimes z \arrow[r, "b"]               & z\otimes(x\otimes y) \arrow[d, "a^{-1}"] \\
+x\otimes(z\otimes y) \arrow[r, "a^{-1}"]                               & (x\otimes z)\otimes y \arrow[r, "b\otimes\id_\sC"] & (z\otimes x)\otimes y                   
+\end{tikzcd}\]
+\end{definition}
