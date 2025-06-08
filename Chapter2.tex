@@ -1,11 +1,11 @@
 \chapter{\texorpdfstring{Algebras of $\PaB$}{Algebras of PaB}}
 \lhead{\emph{algebras of $\PaB$}}
 \section{Braided Monoidal Categories}
-\begin{definition}
-	A category $\sC$ with a bifunctor $-\otimes-:\sC\times\sC\to\sC$ (the monoidal, or tensor product), unit object $\mathbb{1}$, and natural isomorphisms
+\begin{definition}[monoidal category]
+	A category $\sC$ with a bifunctor $-\otimes-:\sC\times\sC\to\sC$ (the monoidal, or tensor product), unit object $\mathbf{1}$, and natural isomorphisms
 	\begin{align}
 		&a:(-\otimes-)\otimes-\Rightarrow-\otimes(-\otimes-)\\
-		&l:\mathbb{1}\otimes-\Ra\id_\sC & r:-\otimes\mathbb{1}\Ra\id_{sC}
+		&l:\mathbf{1}\otimes-\Ra\id_\sC & r:-\otimes\mathbf{1}\Ra\id_{sC}
 	\end{align}
 	 respectively called the associator, left unitor, right unitor, is \emph{monoidal} if when we write $\otimes$ to act componentwise on natural transformations,
 	\begin{enumerate}
@@ -51,8 +51,10 @@
 	or as natural transformations, $a\circ a=(\id_\sC\otimes a)\circ a\circ(a\otimes\id_\sC)$
 	\end{enumerate}
 \end{definition}
-\begin{definition} \label{braidedMonoidalCategory}
-	If $(\sC,\mathbb{1},a,l,r)$ is a monoidal category with a natural isomorphism $b_{x,y}:x\otimes y\to y\otimes x$, then it is \emph{braided} if it satisfies the hexagon identities, i.e. the following diagrams commute
+
+A monoidal category is \emph{strict} if the components of the associator and unitors are identity morphisms.
+\begin{definition}[braided monoidal category] \label{braidedMonoidalCategory}
+	If $(\sC,\otimes,\mathbf{1},a,l,r)$ is a monoidal category with a natural isomorphism $b_{x,y}:x\otimes y\to y\otimes x$, then it is \emph{braided} if it satisfies the hexagon identities, i.e. the following diagrams commute
 	\[
 \begin{tikzcd}
 	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAAoAPAHW4jwC28AAQBPAJS9+WIXGEAvEAF9S6TLnyEUARnJVajFmx59B8dqKlm588ctUgM2PASIAmPdXrNWiDpdMZEVsrILlOezVnTSIybX1vIz8LUNlhTklAtMUVKI1XHVJ4r0NfEADpWS5U4Ltcx3UXLWQPYoMfNgrrdnka8Lr9GCgAc3giUAAzACcIASQyEBwIJABmEo6-ACNea14sKAB9XjgAYRBqBjpNmAYABUaYvwYYCZxIkGnZ+eolpF12pIgOjnECXa53B4FUEvN71T5zRD-X6IDwAsqbEFgm73aJQ56vd7wpCo5EAVnWgOBFyu2MhWmhBLhMwRa0Wy0QABYKWUqaCaRDcfT8bCHETOT92eS+eCcfkhTCQYkyntDscTn1hBilBQlEA
@@ -67,11 +69,35 @@ x\otimes(z\otimes y) \arrow[r, "a^{-1}"]                               & (x\otim
 \end{tikzcd}\]
 \end{definition}
 
-The next theorem states that natural isomorphisms that come from composing associator and unitor components are unique.
-\begin{theorem}[Mac Lane's Coherence Theorem]
-	Suppose
+We will now build up to Mac Lane's Coherence Theorem
+\begin{definition}[monoidal functor, or strong monoidal functor at nLab]
+	Suppose $(\sC,\otimes,\mathbf{1},a,l,r)$, and $(\sC',\otimes',\mathbf{1}',a',l',r')$, are monoidal categories, then a monoidal functor consists of a functor $F:\sC\to\sC'$ such that $\mathbf{1'}\cong F(\mathbf{1})$, and a natural isomorphism $m:F(-)\otimes F(-)\to F(-\otimes-)$ such that the following diagram commutes
+	\[\begin{tikzcd}
+		% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAAoAxdgDQEoAOgIh4AtvAAE3AJp9BwsZO4AtPiAC+pdJlz5CKAIzkqtRizbceQkVnFwJs64vsq1m7djwEiAJmPV6ZlZEEG5eJ1tJRwVI+1UNLRAMTz1fUgMTQPMQywi7dmk8yVU3ROTdbxQyDICzYNDeeRt8mSbnKXYShI8K-WQjGtMgi0ailwKxiXj1ExgoAHN4IlAAMwAnCFEkMhAcCCQjIeyQUTGhLCgAfSE4AGFukHXNg+o9pD8j+q33R42txA+b0QAGZasMcuw6KVVn9tq99ogACxg450ADkDye-2RuwRAFYUfVzlcbrdJt9ElikATcUhQZ82N8KOogA
+(F(X)\otimes F(Y))\otimes F(Z) \arrow[r, "m\otimes\id_\sC"] \arrow[d, "a'"] & F(X\otimes Y)\otimes F(Z) \arrow[r, "m"] & F((X\otimes Y)\otimes Z) \arrow[d, "F(a)"] \\
+F(X)\otimes(F(Y)\otimes F(Z)) \arrow[r, "\id_\sC\otimes m"]                 & F(X)\otimes F(Y\otimes Z) \arrow[r, "m"] & F(X\otimes(Y\otimes Z))                   
+\end{tikzcd}\]
+\end{definition}
+A monoidal functor that happens to be an equivalence of categories is called an \emph{equivalence of monoidal categories}.
+\begin{theorem}[Mac Lane's Strictness Theorem]
+	For any monoidal category $(\sC,\otimes,\mathbf{1},a,l,r)$, there exists a \emph{strict} monoidal category $(\sC',\otimes',\mathbf{1}',a',l',r')$ and an equivalence of monoidal categories $L:\sC\to\sC'$.
 \end{theorem}
+\begin{proof}
+	see \cite{Etingof} from the 2009 lecture notes to "Topics in Lie Theory".
+	% Let $\sC'$ be pairs $(F,c)$ where $F$ is an endofunctor of $\sC$, and $c:F(-)\otimes\id_\sC\to F(-\otimes\id_\sC)$ is a natural isomorphism. Then $\sC'$ is strict, and we can construct an equivalence of monoidal categories $L:\sC\to\sC'$ by left multiplication:
+	% \begin{enumerate}
+	% 	\item For all $X\in\Obj(\sC)$, $L(X)\defeq X\otimes-$.
+	% 	\item For morphisms $f$ in $\sC$, $L(f)\defeq f\otimes-$.
+	% \end{enumerate}
+\end{proof}
+The next theorem is a corollary of Mac Lane's Strictness Theorem.
+\begin{theorem}[Mac Lane's Coherence Theorem]
+	Suppose $P$ and $P'$ are parenthesizations of $X_1\otimes\cdots\otimes X_n$ with arbitrary insertions of $\mathbf{1}$, and $f,g:P\to P'$ are isomorphisms built by composing associator and unitor components, then $f=g$.
+\end{theorem}
+\begin{proof}
+	see \cite{Etingof_2009}
+\end{proof}
 \section{\texorpdfstring{The Operad $\PaB$ of Parenthesized Braids}{The Operad PaB of Parenthesized Braids}}
 \begin{definition}[operad]
-	An operad in a monoidal category $\sC$
+	An operad $P$ in a monoidal category $(\sC,\otimes,\mathbf{1},a,l,r)$ is a collection of objects $\left\{ P(n) \right\}_n$, each object $P(n)$ has a right $S_n$-action ($S_n$ being the $n$th symmetric group), and operadic composition $\circ_i:P(m)\otimes P(n)\to P(m+n-1)$ such that
 \end{definition}
