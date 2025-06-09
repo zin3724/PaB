@@ -4,12 +4,12 @@
 \begin{definition}[monoidal category]
 	A category $\sC$ with a bifunctor $-\otimes-:\sC\times\sC\to\sC$ (the monoidal, or tensor product), unit object $\mathbf{1}$, and natural isomorphisms
 	\begin{align}
-		&a:(-\otimes-)\otimes-\Rightarrow-\otimes(-\otimes-)\\
-		&l:\mathbf{1}\otimes-\Ra\id_\sC & r:-\otimes\mathbf{1}\Ra\id_{sC}
+		&\alpha:(-\otimes-)\otimes-\Rightarrow-\otimes(-\otimes-)\\
+		&\lambda:\mathbf{1}\otimes-\Ra\id_\sC & \rho:-\otimes\mathbf{1}\Ra\id_{sC}
 	\end{align}
 	 respectively called the associator, left unitor, right unitor, is \emph{monoidal} if when we write $\otimes$ to act componentwise on natural transformations,
 	\begin{enumerate}
-	\item the triangle identity is satisfied, i.e. $r\otimes\id_\sC=(\id_\sC\otimes l)\circ a$
+	\item the triangle identity is satisfied, i.e. $\rho\otimes\id_\sC=(\id_\sC\otimes\lambda)\circ\alpha$
 	\item the pentagon identity holds, i.e. for all $w,x,y,z\in\Obj(\sC)$, the following diagram commutes
 	
 
@@ -48,39 +48,41 @@
 
 \end{tikzpicture}
 \]
-	or as natural transformations, $a\circ a=(\id_\sC\otimes a)\circ a\circ(a\otimes\id_\sC)$
+	or as natural transformations, $\alpha\circ\alpha=(\id_\sC\otimes\alpha)\circ\alpha\circ(\alpha\otimes\id_\sC)$
 	\end{enumerate}
 \end{definition}
 
 A monoidal category is \emph{strict} if the components of the associator and unitors are identity morphisms.
 \begin{definition}[braided monoidal category] \label{braidedMonoidalCategory}
-	If $(\sC,\otimes,\mathbf{1},a,l,r)$ is a monoidal category with a natural isomorphism $b_{x,y}:x\otimes y\to y\otimes x$, then it is \emph{braided} if it satisfies the hexagon identities, i.e. the following diagrams commute
+	If $(\sC,\otimes,\mathbf{1},\alpha,\lambda,\rho)$ is a monoidal category with a natural isomorphism $\beta_{x,y}:x\otimes y\to y\otimes x$, then it is \emph{braided} if it satisfies the hexagon identities, i.e. the following diagrams commute
 	\[
 \begin{tikzcd}
-	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAAoAPAHW4jwC28AAQBPAJS9+WIXGEAvEAF9S6TLnyEUARnJVajFmx59B8dqKlm588ctUgM2PASIAmPdXrNWiDpdMZEVsrILlOezVnTSIybX1vIz8LUNlhTklAtMUVKI1XHVJ4r0NfEADpWS5U4Ltcx3UXLWQPYoMfNgrrdnka8Lr9GCgAc3giUAAzACcIASQyEBwIJABmEo6-ACNea14sKAB9XjgAYRBqBjpNmAYABUaYvwYYCZxIkGnZ+eolpF12pIgOjnECXa53B4FUEvN71T5zRD-X6IDwAsqbEFgm73aJQ56vd7wpCo5EAVnWgOBFyu2MhWmhBLhMwRa0Wy0QABYKWUqaCaRDcfT8bCHETOT92eS+eCcfkhTCQYkyntDscTn1hBilBQlEA
-(x\otimes y)\otimes z \arrow[d, "b\times\id_\sC"] \arrow[r, "a"] & x\otimes(y\otimes z) \arrow[r, "b"]                & (y\otimes z)\otimes x \arrow[d, "a"] \\
-(y\otimes x)\otimes z \arrow[r, "a"]                             & y\otimes(x\otimes z) \arrow[r, "\id_\sC\otimes b"] & y\otimes(z\otimes x)                
-\end{tikzcd}
-	\]
-	\[\begin{tikzcd}
-		% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAA8AdTiPAW3gAKAJ7deWAXAAEALwCUIAL6l0mXPkIoAjOSq1GLNoK49+8KcLliz0mUpUgM2PASIAmXdXrNWiEDOsJIRNxSQsFZVVnDXdSLT1vQz9BANMg6XYrNLDheyj1VxQyeK8DXw5AyRTK80s8xzUXTWQdEv0fIxCbWSzQ2qU9GCgAc3giUAAzACcIPiQyEBwIJB12pJA6AD1gAFotRXrp2ZXqJaQPNfKAI0OZucQLs8QAZlKOvy3d-dvjxAWngAsb3W3CwUAA+tw4ABhGrSG6REBHe5AxbLRAAVmB5U+ewOiORSCxaKQr0ubCucNBEKh0IGiiAA
-x\otimes(y\otimes z) \arrow[r, "a^{-1}"] \arrow[d, "\id_\sC\otimes b"] & (x\otimes y)\otimes z \arrow[r, "b"]               & z\otimes(x\otimes y) \arrow[d, "a^{-1}"] \\
-x\otimes(z\otimes y) \arrow[r, "a^{-1}"]                               & (x\otimes z)\otimes y \arrow[r, "b\otimes\id_\sC"] & (z\otimes x)\otimes y                   
+	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAAoAPAHW4jwC28AAQBPAJS9+WIXGEAvEAF9S6TLnyEUARnJVajFmx59B8dqKlm588ctUgM2PASIAmPdXrNWiDpdMZEVsrILlOezVnTSIybX1vIz8LUNlhTklAtMUVKI1XHVJ4r0NfEADpWS5U4Ltcx3UXLWQPYoMfNgrrdnka8Lr9GCgAc3giUAAzACcIASQyEBwIJABmEo6-XgAjGBw6Pt4sKAB9XjgAYRBqBjodhgAFRpi-BhgJnEiQadn56iWkXTtJIgXiMNAACzoVxANzuj2iBRhbw+9W+c0QgP+iA8QLK212UOutxgDyeiNe70+aKQOKxAFZ1sDQQwIYSYcTSQitEjKaiZui1otlogACyMvHcMGQ6Gwknw-LcikohzU0V-YUM9lwsmK5HQxISo6nbgXA7cHZ7ZQUJRAA
+(x\otimes y)\otimes z \arrow[d, "\beta\otimes\id_\sC"] \arrow[r, "\alpha"] & x\otimes(y\otimes z) \arrow[r, "\beta"]               & (y\otimes z)\otimes x \arrow[d, "\alpha"] \\
+(y\otimes x)\otimes z \arrow[r, "\alpha"]                                  & y\otimes(x\otimes z) \arrow[r, "\id_\sC\otimes\beta"] & y\otimes(z\otimes x)                     
+\end{tikzcd}\]
+	\[
+\begin{tikzcd}
+	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAA8AdTiPAW3gAKAJ7deWAXAAEALwCUIAL6l0mXPkIoAjOSq1GLNoK49+8KcLliz0mUpUgM2PASIAmXdXrNWiEDOsJIRNxSQsFZVVnDXdSLT1vQz9BANMg6XYrNLDheyj1VxQyeK8DXw5AyRTK80s8xzUXTWQdEv0fIxCbWSzQ2qU9GCgAc3giUAAzACcIPiQyEBwIJB12pJBuRjQACzoAPWAAWi1FeunZleolpA818u4AIxgcOjOZucRb68QAZlKOvybBg7fZHE5vC6IBbfAAs-3W3CwUAA+tw4ABhGpwR7PV6REDnD5wxbLRAAVnh904W12B2Op3xhKQFJJSD+dzYOJeWMRKLR6IGiiAA
+x\otimes(y\otimes z) \arrow[r, "\alpha^{-1}"] \arrow[d, "\id_\sC\otimes\beta"] & (x\otimes y)\otimes z \arrow[r, "\beta"]               & z\otimes(x\otimes y) \arrow[d, "\alpha^{-1}"] \\
+x\otimes(z\otimes y) \arrow[r, "\alpha^{-1}"]                                  & (x\otimes z)\otimes y \arrow[r, "\beta\otimes\id_\sC"] & (z\otimes x)\otimes y                        
 \end{tikzcd}\]
 \end{definition}
 
 We will now build up to Mac Lane's Coherence Theorem
 \begin{definition}[monoidal functor, or strong monoidal functor at nLab]
-	Suppose $(\sC,\otimes,\mathbf{1},a,l,r)$, and $(\sC',\otimes',\mathbf{1}',a',l',r')$, are monoidal categories, then a monoidal functor consists of a functor $F:\sC\to\sC'$ such that $\mathbf{1'}\cong F(\mathbf{1})$, and a natural isomorphism $m:F(-)\otimes F(-)\to F(-\otimes-)$ such that the following diagram commutes
+	Suppose $(\sC,\otimes,\mathbf{1},\alpha,\lambda,\rho)$, and $(\sC',\otimes',\mathbf{1}',\alpha',\lambda',\rho')$, are monoidal categories, then a monoidal functor consists of a functor $F:\sC\to\sC'$ such that $\mathbf{1'}\cong F(\mathbf{1})$, and a natural isomorphism $m:F(-)\otimes F(-)\to F(-\otimes-)$ such that the following diagram commutes
 	\[\begin{tikzcd}
-		% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAAoAxdgDQEoAOgIh4AtvAAE3AJp9BwsZO4AtPiAC+pdJlz5CKAIzkqtRizbceQkVnFwJs64vsq1m7djwEiAJmPV6ZlZEEG5eJ1tJRwVI+1UNLRAMTz1fUgMTQPMQywi7dmk8yVU3ROTdbxQyDICzYNDeeRt8mSbnKXYShI8K-WQjGtMgi0ailwKxiXj1ExgoAHN4IlAAMwAnCFEkMhAcCCQjIeyQUTGhLCgAfSE4AGFukHXNg+o9pD8j+q33R42txA+b0QAGZasMcuw6KVVn9tq99ogACxg450ADkDye-2RuwRAFYUfVzlcbrdJt9ElikATcUhQZ82N8KOogA
-(F(X)\otimes F(Y))\otimes F(Z) \arrow[r, "m\otimes\id_\sC"] \arrow[d, "a'"] & F(X\otimes Y)\otimes F(Z) \arrow[r, "m"] & F((X\otimes Y)\otimes Z) \arrow[d, "F(a)"] \\
-F(X)\otimes(F(Y)\otimes F(Z)) \arrow[r, "\id_\sC\otimes m"]                 & F(X)\otimes F(Y\otimes Z) \arrow[r, "m"] & F(X\otimes(Y\otimes Z))                   
+		% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAAoAxdgDQEoAOgIh4AtvAAE3AJp9BwsZO4AtPiAC+pdJlz5CKMgEYqtRizbceQkVnFwJs64vsq1m7djwEiZAEwn6ZlZEEG5eJ1tJRwVI+1UNLRAMTz0iQ1J-akDzEMsIu3ZpfMlVN0Tk3W8UdMoss2DQ3nkbAplm5yl2UoSPSv1kdOM6oIsm4pdC8Yl49RMYKABzeCJQADMAJwhRJDIQHAgkdNMRkNFxoSwoAH0hOABhHpANrcPqfaRfYZyQbfcnze2iE+ewOiAAzF8GtwhIw0AALOhlNYAnZvUEAFkhbBhDHhdAA5I9noDMSCkABWLEhC7XW53Ka-RLEilopAQ47fX4UdRAA
+(F(X)\otimes F(Y))\otimes F(Z) \arrow[d, "m\otimes\id_\sC"] \arrow[r, "\alpha'"] & F(X)\otimes(F(Y)\otimes F(Z)) \arrow[d, "\id_\sC\otimes m"] \\
+F(X\otimes Y)\otimes F(Z) \arrow[d, "m"]                                         & F(X)\otimes F(Y\otimes Z) \arrow[d, "m"]                    \\
+F((X\otimes Y)\otimes Z) \arrow[r, "F(\alpha)"]                                  & F(X\otimes(Y\otimes Z))                                    
 \end{tikzcd}\]
 \end{definition}
 A monoidal functor that happens to be an equivalence of categories is called an \emph{equivalence of monoidal categories}.
 \begin{theorem}[Mac Lane's Strictness Theorem]
-	For any monoidal category $(\sC,\otimes,\mathbf{1},a,l,r)$, there exists a \emph{strict} monoidal category $(\sC',\otimes',\mathbf{1}',a',l',r')$ and an equivalence of monoidal categories $L:\sC\to\sC'$.
+	For any monoidal category\\
+	$(\sC,\otimes,\mathbf{1},\alpha,\lambda,\rho)$, there exists a \emph{strict} monoidal category $(\sC',\otimes',\mathbf{1}',\alpha',\lambda',\rho')$ and an equivalence of monoidal categories $L:\sC\to\sC'$.
 \end{theorem}
 \begin{proof}
 	see \cite{Etingof} from the 2009 lecture notes to "Topics in Lie Theory".
@@ -91,13 +93,71 @@ A monoidal functor that happens to be an equivalence of categories is called an 
 	% \end{enumerate}
 \end{proof}
 The next theorem is a corollary of Mac Lane's Strictness Theorem.
-\begin{theorem}[Mac Lane's Coherence Theorem]
+\begin{theorem}[Mac Lane's Coherence Theorem] \label{MacLaneCoherenceThm}
 	Suppose $P$ and $P'$ are parenthesizations of $X_1\otimes\cdots\otimes X_n$ with arbitrary insertions of $\mathbf{1}$, and $f,g:P\to P'$ are isomorphisms built by composing associator and unitor components, then $f=g$.
 \end{theorem}
 \begin{proof}
 	see \cite{Etingof_2009}
 \end{proof}
 \section{\texorpdfstring{The Operad $\PaB$ of Parenthesized Braids}{The Operad PaB of Parenthesized Braids}}
+Operads are an unbiased way of keeping track of $n$-ary operations and how they compose. The "elements" of $P(n)$, we imagine to be corollas, i.e., rooted trees of depth 1 with $n+1$ half-edges. We can treat $\otimes$ in this "unbiased" way (i.e. ignoring how products are parenthesized, and products with units) because of Mac Lane's Coherence Theorem \ref{MacLaneCoherenceThm}.
 \begin{definition}[operad]
-	An operad $P$ in a monoidal category $(\sC,\otimes,\mathbf{1},a,l,r)$ is a collection of objects $\left\{ P(n) \right\}_n$, each object $P(n)$ has a right $S_n$-action ($S_n$ being the $n$th symmetric group), and operadic composition $\circ_i:P(m)\otimes P(n)\to P(m+n-1)$ such that
+	An operad $P$ in a symmetric monoidal category\\
+	$(\sC,\otimes,\mathbf{1},a,l,r,b)$ (i.e. a braided monoidal category such that $b\circ b=\id_\sC$) is a collection of objects $\left\{ P(n) \right\}_n$, with each object $P(n)$ having a right $S_n$-action ($S_n$ being the $n$th symmetric group), and operadic composition
+	\[c_{m;n_1,\cdots,n_m}:P(m)\otimes P(n_1)\otimes\cdots\otimes P(n_m)\to P(n_1+\cdots+n_m)\]
+	such that the following are satisfied
+	\begin{enumerate}
+		\item Associativity: if
+			\begin{enumerate}
+			\item $\sum_{j=1}^{m_i}n_{i_j}=n_i$ for each $1\le i\le k$,
+			\item $\sum_{i=1}^{k}n_i=l$,
+			\item $\sum_{i=1}^k m_i=m$,
+			\end{enumerate}
+		then the following commutes
+\[\adjustbox{width={0.9\textwidth},keepaspectratio}{\begin{tikzcd}
+	% https://q.uiver.app/#q=WzAsNixbMCwwLCJQKGspXFxvdGltZXNcXGJpZ290aW1lc197aT0xfV5rXFxsZWZ0KFAobV9pKVxcb3RpbWVzXFxiaWdvdGltZXNfe2o9MX1ee21faX1QKG5fe2lfan0pXFxyaWdodCkiXSxbMCwxLCJQKGspXFxvdGltZXNcXGJpZ290aW1lc197aT0xfV5rUFxcbGVmdChuX2lcXHJpZ2h0KSJdLFsyLDIsIlAobCkiXSxbMiwwLCJcXGxlZnQoUChrKVxcb3RpbWVzXFxiaWdvdGltZXNfe2k9MX1ee2t9UChtX2kpXFxyaWdodClcXG90aW1lc1xcbGVmdChcXGJpZ290aW1lc197aT0xfV5rXFxiaWdvdGltZXNfe2o9MX1ee21faX1QKG5fe2lfan0pXFxyaWdodCkiXSxbMiwxLCJQKG0pXFxvdGltZXNcXGxlZnQoXFxiaWdvdGltZXNfe2k9MX1ea1xcYmlnb3RpbWVzX3tqPTF9XnttX2l9UChuX3tpX2p9KVxccmlnaHQpIl0sWzAsMiwiUChsKSJdLFswLDEsIlxcaWRfXFxzQ1xcb3RpbWVzXFxiaWdvdGltZXNfe2k9MX1ea2Nfe21faTtuX3tpXzF9LFxcY2RvdHMsbl97aV97bV9pfX19Il0sWzAsMywiXFxjb25nIiwyXSxbMyw0LCJjX3trO21fMSxcXGNkb3RzLG1fa31cXG90aW1lc1xcaWRfXFxzQ157XFxvdGltZXMgbX0iLDJdLFs0LDIsImNfe207bl97MV8xfSxcXGNkb3RzLG5fe2tfeyhtX2spfX19IiwyXSxbMSw1LCJjX3trO25fMSxcXGNkb3RzLG5fa30iXSxbNSwyLCI9Il1d
+	{P(k)\otimes\bigotimes_{i=1}^k\left(P(m_i)\otimes\bigotimes_{j=1}^{m_i}P(n_{i_j})\right)} && {\left(P(k)\otimes\bigotimes_{i=1}^{k}P(m_i)\right)\otimes\left(\bigotimes_{i=1}^k\bigotimes_{j=1}^{m_i}P(n_{i_j})\right)} \\
+	{P(k)\otimes\bigotimes_{i=1}^kP\left(n_i\right)} && {P(m)\otimes\left(\bigotimes_{i=1}^k\bigotimes_{j=1}^{m_i}P(n_{i_j})\right)} \\
+	{P(l)} && {P(l)}
+	\arrow["\cong"', from=1-1, to=1-3]
+	\arrow["{\id_\sC\otimes\bigotimes_{i=1}^kc_{m_i;n_{i_1},\cdots,n_{i_{m_i}}}}", from=1-1, to=2-1]
+	\arrow["{c_{k;m_1,\cdots,m_k}\otimes\id_\sC^{\otimes m}}"', from=1-3, to=2-3]
+	\arrow["{c_{k;n_1,\cdots,n_k}}", from=2-1, to=3-1]
+	\arrow["{c_{m;n_{1_1},\cdots,n_{k_{(m_k)}}}}"', from=2-3, to=3-3]
+	\arrow["{=}", from=3-1, to=3-3]
+\end{tikzcd}}\]
+		\item Unit: there exists a map $e:\mathbf{1}\to P(1)$ such that the following hold for all $n$
+\[\begin{tikzcd}
+	% https://q.uiver.app/#q=WzAsNCxbMCwwLCJQKG4pIl0sWzEsMCwiXFxtYXRoYmZ7MX1cXG90aW1lcyBQKG4pIl0sWzIsMCwiUCgxKVxcb3RpbWVzIFAobikiXSxbMywwLCJQKG4pIl0sWzAsMSwiXFxsYW1iZGFeey0xfSJdLFsxLDIsImVcXG90aW1lc1xcaWRfXFxzQyJdLFsyLDMsImNfezE7bn0iXSxbMCwzLCI9IiwyLHsiY3VydmUiOjJ9XV0=
+	{P(n)} & {\mathbf{1}\otimes P(n)} & {P(1)\otimes P(n)} & {P(n)}
+	\arrow["{\lambda^{-1}}", from=1-1, to=1-2]
+	\arrow["{=}"', curve={height=12pt}, from=1-1, to=1-4]
+	\arrow["{e\otimes\id_\sC}", from=1-2, to=1-3]
+	\arrow["{c_{1;n}}", from=1-3, to=1-4]
+\end{tikzcd}\]
+\[\begin{tikzcd}
+	% https://q.uiver.app/#q=WzAsNCxbMCwwLCJQKG4pIl0sWzEsMCwiUChuKVxcb3RpbWVzXFxtYXRoYmZ7MX1ee1xcb3RpbWVzIG59Il0sWzIsMCwiUChuKVxcb3RpbWVzIFAoMSlee1xcb3RpbWVzIG59Il0sWzMsMCwiUChuKSJdLFswLDEsIihcXHJob157LTF9KV57XFxjaXJjIG59Il0sWzEsMiwiXFxpZF9cXHNDXFxvdGltZXMgZV57XFxvdGltZXMgbn0iXSxbMiwzLCJjX3tuOzEsXFxjZG90cywxfSJdLFswLDMsIj0iLDIseyJjdXJ2ZSI6Mn1dXQ==
+	{P(n)} & {P(n)\otimes\mathbf{1}^{\otimes n}} & {P(n)\otimes P(1)^{\otimes n}} & {P(n)}
+	\arrow["{(\rho^{-1})^{\circ n}}", from=1-1, to=1-2]
+	\arrow["{=}"', curve={height=12pt}, from=1-1, to=1-4]
+	\arrow["{\id_\sC\otimes e^{\otimes n}}", from=1-2, to=1-3]
+	\arrow["{c_{n;1,\cdots,1}}", from=1-3, to=1-4]
+\end{tikzcd}\]
+		\item Equivariance: the right action $(-)s:P(n)\to P(n)$ of $s\in S_n$ on $P(n)$ is given by $s$ permuting the $n$ inputs of each "element" of $P(n)$, so that on operadic composition maps, we have
+		\[c_{n;m_1,\cdots,m_n}\circ(-)s = c_{n;m_{s^{-1}(1)},\cdots,m_{s^{-1}(n)}},\]
+		then equivariance is the condition that the following commutes
+\[\begin{tikzcd}
+	% https://q.uiver.app/#q=WzAsNCxbMCwwLCJQKG4pXFxvdGltZXNcXGJpZ290aW1lc197aT0xfV5uUChtX2kpIl0sWzAsMSwiUChuKVxcb3RpbWVzXFxiaWdvdGltZXNfe2k9MX1eblAobV9pKSJdLFsxLDEsIlAobV8xK1xcY2RvdHMrbV9uKSJdLFsxLDAsIlAobilcXG90aW1lc1xcYmlnb3RpbWVzX3tpPTF9Xm5QKG1fe3Neey0xfShpKX0pIl0sWzAsMSwiKC0pc1xcb3RpbWVzXFxpZF9cXHNDXntcXG90aW1lcyBufSJdLFsxLDIsImNfe247bV8xLFxcY2RvdHMsbV9ufSJdLFswLDMsIlxcaWRfXFxzQ1xcb3RpbWVzIHMoLSkiLDJdLFszLDIsImNfe247bV97c157LTF9KDEpfSxcXGNkb3RzLG1fe3Neey0xfShuKX19IiwyXV0=
+	{P(n)\otimes\bigotimes_{i=1}^nP(m_i)} & {P(n)\otimes\bigotimes_{i=1}^nP(m_{s^{-1}(i)})} \\
+	{P(n)\otimes\bigotimes_{i=1}^nP(m_i)} & {P(m_1+\cdots+m_n)}
+	\arrow["{\id_\sC\otimes s(-)}"', from=1-1, to=1-2]
+	\arrow["{(-)s\otimes\id_\sC^{\otimes n}}", from=1-1, to=2-1]
+	\arrow["{c_{n;m_{s^{-1}(1)},\cdots,m_{s^{-1}(n)}}}"', from=1-2, to=2-2]
+	\arrow["{c_{n;m_1,\cdots,m_n}}", from=2-1, to=2-2]
+\end{tikzcd}\]
+(where $s(-)$ is the isomorphism given by $s$ permuting the $n$ factors of $\bigotimes_{i=1}^nP(m_i)$)
+	\end{enumerate}
+\end{definition}
+\begin{definition}[operad morphism]
+	A morphism $f:P\to Q$ of operads is a collection of maps $\left\{ f_n:P(n)\to Q(n) \right\}_{n}$ such that
 \end{definition}
