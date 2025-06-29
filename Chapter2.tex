@@ -99,6 +99,7 @@ The next theorem is a corollary of Mac Lane's Strictness Theorem.
 \begin{proof}
 	see pg. 1 of \cite{Etingof_2009}
 \end{proof}
+
 \section{\texorpdfstring{The Operad $\PaB$ of Parenthesized Braids}{The Operad PaB of Parenthesized Braids}}
 Operads are an unbiased way of keeping track of $n$-ary operations and how they compose. The "elements" of $P(n)$, we imagine to be corollas, i.e., rooted trees of depth 1 with $n+1$ half-edges. We can treat $\otimes$ in this "unbiased" way (i.e. ignoring how products are parenthesized, and products with units) because of Mac Lane's Coherence Theorem \ref{MacLaneCoherenceThm}.
 \begin{definition}[planar operad, symmetric operad]
@@ -115,50 +116,53 @@ Operads are an unbiased way of keeping track of $n$-ary operations and how they 
 			\item $\sum_{i=1}^k m_i=m$,
 			\end{enumerate}
 		then the following commutes
-\[\adjustbox{width={0.9\textwidth},keepaspectratio}{\begin{tikzcd}
-	% https://q.uiver.app/#q=WzAsNixbMCwwLCJQKGspXFxvdGltZXNcXGJpZ290aW1lc197aT0xfV5rXFxsZWZ0KFAobV9pKVxcb3RpbWVzXFxiaWdvdGltZXNfe2o9MX1ee21faX1QKG5fe2lfan0pXFxyaWdodCkiXSxbMCwxLCJQKGspXFxvdGltZXNcXGJpZ290aW1lc197aT0xfV5rUFxcbGVmdChuX2lcXHJpZ2h0KSJdLFsyLDIsIlAobCkiXSxbMiwwLCJcXGxlZnQoUChrKVxcb3RpbWVzXFxiaWdvdGltZXNfe2k9MX1ee2t9UChtX2kpXFxyaWdodClcXG90aW1lc1xcbGVmdChcXGJpZ290aW1lc197aT0xfV5rXFxiaWdvdGltZXNfe2o9MX1ee21faX1QKG5fe2lfan0pXFxyaWdodCkiXSxbMiwxLCJQKG0pXFxvdGltZXNcXGxlZnQoXFxiaWdvdGltZXNfe2k9MX1ea1xcYmlnb3RpbWVzX3tqPTF9XnttX2l9UChuX3tpX2p9KVxccmlnaHQpIl0sWzAsMiwiUChsKSJdLFswLDEsIlxcaWRfXFxzQ1xcb3RpbWVzXFxiaWdvdGltZXNfe2k9MX1ea2Nfe21faTtuX3tpXzF9LFxcY2RvdHMsbl97aV97bV9pfX19Il0sWzAsMywiXFxjb25nIiwyXSxbMyw0LCJjX3trO21fMSxcXGNkb3RzLG1fa31cXG90aW1lc1xcaWRfXFxzQ157XFxvdGltZXMgbX0iLDJdLFs0LDIsImNfe207bl97MV8xfSxcXGNkb3RzLG5fe2tfeyhtX2spfX19IiwyXSxbMSw1LCJjX3trO25fMSxcXGNkb3RzLG5fa30iXSxbNSwyLCI9Il1d
+\[\begin{tikzcd}
+	% https://q.uiver.app/#q=WzAsNixbMCwwLCJQKGspXFxvdGltZXNcXGJpZ290aW1lc197aT0xfV5rXFxsZWZ0KFAobV9pKVxcb3RpbWVzXFxiaWdvdGltZXNfe2o9MX1ee21faX1QKG5fe2lfan0pXFxyaWdodCkiXSxbMCwxLCJQKGspXFxvdGltZXNcXGJpZ290aW1lc197aT0xfV5rUFxcbGVmdChuX2lcXHJpZ2h0KSJdLFsyLDIsIlAobCkiXSxbMiwwLCJcXGxlZnQoUChrKVxcb3RpbWVzXFxiaWdvdGltZXNfe2k9MX1ee2t9UChtX2kpXFxyaWdodClcXG90aW1lc1xcbGVmdChcXGJpZ290aW1lc197aT0xfV5rXFxiaWdvdGltZXNfe2o9MX1ee21faX1QKG5fe2lfan0pXFxyaWdodCkiXSxbMiwxLCJQKG0pXFxvdGltZXNcXGxlZnQoXFxiaWdvdGltZXNfe2k9MX1ea1xcYmlnb3RpbWVzX3tqPTF9XnttX2l9UChuX3tpX2p9KVxccmlnaHQpIl0sWzAsMiwiUChsKSJdLFswLDEsIlxcaWRfXFxzQ1xcb3RpbWVzXFxiaWdvdGltZXNfe2k9MX1ea2Nfe21faTtuX3tpXzF9LFxcY2RvdHMsbl97aV97bV9pfX19Il0sWzAsMywiXFxjb25nIiwyXSxbMyw0LCJcXGNpcmNfe2s7bV8xLFxcY2RvdHMsbV9rfVxcb3RpbWVzXFxpZF9cXHNDXntcXG90aW1lcyBtfSIsMl0sWzQsMiwiXFxjaXJjX3ttO25fezFfMX0sXFxjZG90cyxuX3trX3sobV9rKX19fSIsMl0sWzEsNSwiXFxjaXJjX3trO25fMSxcXGNkb3RzLG5fa30iXSxbNSwyLCI9Il1d
 	{P(k)\otimes\bigotimes_{i=1}^k\left(P(m_i)\otimes\bigotimes_{j=1}^{m_i}P(n_{i_j})\right)} && {\left(P(k)\otimes\bigotimes_{i=1}^{k}P(m_i)\right)\otimes\left(\bigotimes_{i=1}^k\bigotimes_{j=1}^{m_i}P(n_{i_j})\right)} \\
 	{P(k)\otimes\bigotimes_{i=1}^kP\left(n_i\right)} && {P(m)\otimes\left(\bigotimes_{i=1}^k\bigotimes_{j=1}^{m_i}P(n_{i_j})\right)} \\
 	{P(l)} && {P(l)}
 	\arrow["\cong"', from=1-1, to=1-3]
 	\arrow["{\id_\sC\otimes\bigotimes_{i=1}^kc_{m_i;n_{i_1},\cdots,n_{i_{m_i}}}}", from=1-1, to=2-1]
-	\arrow["{c_{k;m_1,\cdots,m_k}\otimes\id_\sC^{\otimes m}}"', from=1-3, to=2-3]
-	\arrow["{c_{k;n_1,\cdots,n_k}}", from=2-1, to=3-1]
-	\arrow["{c_{m;n_{1_1},\cdots,n_{k_{(m_k)}}}}"', from=2-3, to=3-3]
+	\arrow["{\circ_{k;m_1,\cdots,m_k}\otimes\id_\sC^{\otimes m}}"', from=1-3, to=2-3]
+	\arrow["{\circ_{k;n_1,\cdots,n_k}}", from=2-1, to=3-1]
+	\arrow["{\circ_{m;n_{1_1},\cdots,n_{k_{(m_k)}}}}"', from=2-3, to=3-3]
 	\arrow["{=}", from=3-1, to=3-3]
-\end{tikzcd}}\]
+\end{tikzcd}\]
 		\item Unit: there exists a map $e:\mathbf{1}\to P(1)$ such that the following hold for all $n$
 \[\begin{tikzcd}
-	% https://q.uiver.app/#q=WzAsNCxbMCwwLCJQKG4pIl0sWzEsMCwiXFxtYXRoYmZ7MX1cXG90aW1lcyBQKG4pIl0sWzIsMCwiUCgxKVxcb3RpbWVzIFAobikiXSxbMywwLCJQKG4pIl0sWzAsMSwiXFxsYW1iZGFeey0xfSJdLFsxLDIsImVcXG90aW1lc1xcaWRfXFxzQyJdLFsyLDMsImNfezE7bn0iXSxbMCwzLCI9IiwyLHsiY3VydmUiOjJ9XV0=
+	% https://q.uiver.app/#q=WzAsNCxbMCwwLCJQKG4pIl0sWzEsMCwiXFxtYXRoYmZ7MX1cXG90aW1lcyBQKG4pIl0sWzIsMCwiUCgxKVxcb3RpbWVzIFAobikiXSxbMywwLCJQKG4pIl0sWzAsMSwiXFxsYW1iZGFeey0xfSJdLFsxLDIsImVcXG90aW1lc1xcaWRfXFxzQyJdLFsyLDMsIlxcY2lyY197MTtufSJdLFswLDMsIj0iLDIseyJjdXJ2ZSI6Mn1dXQ==
 	{P(n)} & {\mathbf{1}\otimes P(n)} & {P(1)\otimes P(n)} & {P(n)}
 	\arrow["{\lambda^{-1}}", from=1-1, to=1-2]
 	\arrow["{=}"', curve={height=12pt}, from=1-1, to=1-4]
 	\arrow["{e\otimes\id_\sC}", from=1-2, to=1-3]
-	\arrow["{c_{1;n}}", from=1-3, to=1-4]
+	\arrow["{\circ_{1;n}}", from=1-3, to=1-4]
 \end{tikzcd}\]
 \[\begin{tikzcd}
-	% https://q.uiver.app/#q=WzAsNCxbMCwwLCJQKG4pIl0sWzEsMCwiUChuKVxcb3RpbWVzXFxtYXRoYmZ7MX1ee1xcb3RpbWVzIG59Il0sWzIsMCwiUChuKVxcb3RpbWVzIFAoMSlee1xcb3RpbWVzIG59Il0sWzMsMCwiUChuKSJdLFswLDEsIihcXHJob157LTF9KV57XFxjaXJjIG59Il0sWzEsMiwiXFxpZF9cXHNDXFxvdGltZXMgZV57XFxvdGltZXMgbn0iXSxbMiwzLCJjX3tuOzEsXFxjZG90cywxfSJdLFswLDMsIj0iLDIseyJjdXJ2ZSI6Mn1dXQ==
+	% https://q.uiver.app/#q=WzAsNCxbMCwwLCJQKG4pIl0sWzEsMCwiUChuKVxcb3RpbWVzXFxtYXRoYmZ7MX1ee1xcb3RpbWVzIG59Il0sWzIsMCwiUChuKVxcb3RpbWVzIFAoMSlee1xcb3RpbWVzIG59Il0sWzMsMCwiUChuKSJdLFswLDEsIihcXHJob157LTF9KV57XFxjaXJjIG59Il0sWzEsMiwiXFxpZF9cXHNDXFxvdGltZXMgZV57XFxvdGltZXMgbn0iXSxbMiwzLCJcXGNpcmNfe247MSxcXGNkb3RzLDF9Il0sWzAsMywiPSIsMix7ImN1cnZlIjoyfV1d
 	{P(n)} & {P(n)\otimes\mathbf{1}^{\otimes n}} & {P(n)\otimes P(1)^{\otimes n}} & {P(n)}
 	\arrow["{(\rho^{-1})^{\circ n}}", from=1-1, to=1-2]
 	\arrow["{=}"', curve={height=12pt}, from=1-1, to=1-4]
 	\arrow["{\id_\sC\otimes e^{\otimes n}}", from=1-2, to=1-3]
-	\arrow["{c_{n;1,\cdots,1}}", from=1-3, to=1-4]
+	\arrow["{\circ_{n;1,\cdots,1}}", from=1-3, to=1-4]
 \end{tikzcd}\]
-		\item Equivariance: the right action $(-)s:P(n)\to P(n)$ of $s\in S_n$ on $P(n)$ is given by $s$ permuting the $n$ inputs of each "element" of $P(n)$, so that on operadic composition maps, we have
-		\[c_{n;m_1,\cdots,m_n}\circ(-)s = c_{n;m_{s^{-1}(1)},\cdots,m_{s^{-1}(n)}},\]
+		\item Equivariance: the right action $-\cdot\sigma:P(n)\to P(n)$ of $\sigma\in S_n$ on $P(n)$ is given by $\sigma$ permuting the $n$ inputs of each "element" of $P(n)$, so that on operadic composition maps, we have
+		\[\circ_{n;m_1,\cdots,m_n}\circ(-\cdot\sigma) = \circ_{n;m_{\sigma^{-1}(1)},\cdots,m_{\sigma^{-1}(n)}},\]
 		then equivariance is the condition that the following commutes
 \[\begin{tikzcd}
-	% https://q.uiver.app/#q=WzAsNCxbMCwwLCJQKG4pXFxvdGltZXNcXGJpZ290aW1lc197aT0xfV5uUChtX2kpIl0sWzAsMSwiUChuKVxcb3RpbWVzXFxiaWdvdGltZXNfe2k9MX1eblAobV9pKSJdLFsxLDEsIlAobV8xK1xcY2RvdHMrbV9uKSJdLFsxLDAsIlAobilcXG90aW1lc1xcYmlnb3RpbWVzX3tpPTF9Xm5QKG1fe3Neey0xfShpKX0pIl0sWzAsMSwiKC0pc1xcb3RpbWVzXFxpZF9cXHNDXntcXG90aW1lcyBufSJdLFsxLDIsImNfe247bV8xLFxcY2RvdHMsbV9ufSJdLFswLDMsIlxcaWRfXFxzQ1xcb3RpbWVzIHMoLSkiLDJdLFszLDIsImNfe247bV97c157LTF9KDEpfSxcXGNkb3RzLG1fe3Neey0xfShuKX19IiwyXV0=
-	{P(n)\otimes\bigotimes_{i=1}^nP(m_i)} & {P(n)\otimes\bigotimes_{i=1}^nP(m_{s^{-1}(i)})} \\
+	% https://q.uiver.app/#q=WzAsNCxbMCwwLCJQKG4pXFxvdGltZXNcXGJpZ290aW1lc197aT0xfV5uUChtX2kpIl0sWzAsMSwiUChuKVxcb3RpbWVzXFxiaWdvdGltZXNfe2k9MX1eblAobV9pKSJdLFsxLDEsIlAobV8xK1xcY2RvdHMrbV9uKSJdLFsxLDAsIlAobilcXG90aW1lc1xcYmlnb3RpbWVzX3tpPTF9Xm5QKG1fe1xcc2lnbWFeey0xfShpKX0pIl0sWzAsMSwiLVxcY2RvdFxcc2lnbWFcXG90aW1lc1xcaWRfXFxzQ157XFxvdGltZXMgbn0iXSxbMSwyLCJcXGNpcmNfe247bV8xLFxcY2RvdHMsbV9ufSJdLFswLDMsIlxcaWRfXFxzQ1xcb3RpbWVzKC0pXFxzaWdtYSIsMl0sWzMsMiwiXFxjaXJjX3tuO21fe1xcc2lnbWFeey0xfSgxKX0sXFxjZG90cyxtX3tcXHNpZ21hXnstMX0obil9fSIsMl1d
+	{P(n)\otimes\bigotimes_{i=1}^nP(m_i)} & {P(n)\otimes\bigotimes_{i=1}^nP(m_{\sigma^{-1}(i)})} \\
 	{P(n)\otimes\bigotimes_{i=1}^nP(m_i)} & {P(m_1+\cdots+m_n)}
-	\arrow["{\id_\sC\otimes s(-)}"', from=1-1, to=1-2]
-	\arrow["{(-)s\otimes\id_\sC^{\otimes n}}", from=1-1, to=2-1]
-	\arrow["{c_{n;m_{s^{-1}(1)},\cdots,m_{s^{-1}(n)}}}"', from=1-2, to=2-2]
-	\arrow["{c_{n;m_1,\cdots,m_n}}", from=2-1, to=2-2]
+	\arrow["{\id_\sC\otimes(-)\sigma}"', from=1-1, to=1-2]
+	\arrow["{-\cdot\sigma\otimes\id_\sC^{\otimes n}}", from=1-1, to=2-1]
+	\arrow["{\circ_{n;m_{\sigma^{-1}(1)},\cdots,m_{\sigma^{-1}(n)}}}"', from=1-2, to=2-2]
+	\arrow["{\circ_{n;m_1,\cdots,m_n}}", from=2-1, to=2-2]
 \end{tikzcd}\]
-(where $s(-)$ is the isomorphism given by $s$ permuting the $n$ factors of $\bigotimes_{i=1}^nP(m_i)$)
+(where $(-)\sigma$ is the isomorphism given by $\sigma$ permuting the $n$ factors of $\bigotimes_{i=1}^nP(m_i)$)
 	\end{enumerate}
 \end{definition}
+\begin{example}[the endomorphism operad]
+	If $(\sC,\otimes,\mathbf{1},\alpha,\lambda,\rho,\beta)$ is a braided monoidal category, then $\End(\sC) $
+\end{example}
 % \begin{definition}[braided operad]
 % 	This is theorem 4.3.6 from \cite{Yau_2021} reduced to the 1-coloured case.
 % \end{definition}
@@ -166,5 +170,19 @@ Operads are an unbiased way of keeping track of $n$-ary operations and how they 
 % 	Symmetric operads are special cases of braided operads, where $b\in B(n)$ acts via its underlying permutation $\bar{b}$.
 % \end{remark}
 \begin{definition}[operad morphism]
-	A morphism $f:P\to Q$ of operads is a collection of maps $\left\{ f_n:P(n)\to Q(n) \right\}_{n}$ such that 
+	A morphism $f:P\to Q$ of operads is a collection of maps $\left\{ f_n:P(n)\to Q(n) \right\}_{n}$ such that
+	\begin{enumerate}
+		\item The unit is preserved, i.e. $f_1:P(1)\to Q(1)$ satisfies $f_1\circ e^P=e^Q$.
+		\item Composition is preserved, i.e. for all $k,n_1,\cdots,n_k\in\bN_{\ge1}$ with $l=\sum_{i=1}^kn_i$, the following commutes
+		\[\begin{tikzcd}
+			% https://q.uiver.app/#q=WzAsNCxbMSwwLCJRKGspXFxvdGltZXNcXGJpZ290aW1lc197aT0xfV5rUShuX2kpIl0sWzEsMSwiUShsKSJdLFswLDEsIlAobCkiXSxbMCwwLCJQKGspXFxvdGltZXNcXGJpZ290aW1lc197aT0xfV5rUChuX2kpIl0sWzMsMiwiXFxjaXJjXlBfe2s7bl8xLFxcY2RvdHMsbl9rfSJdLFswLDEsIlxcY2lyY15RX3trO25fMSxcXGNkb3RzLG5fa30iXSxbMiwxLCJmX2wiLDJdLFszLDAsImZfa1xcb3RpbWVzXFxiaWdvdGltZXNfe2k9MX1ea2Zfe25faX0iLDJdXQ==
+			{P(k)\otimes\bigotimes_{i=1}^kP(n_i)} & {Q(k)\otimes\bigotimes_{i=1}^kQ(n_i)} \\
+			{P(l)} & {Q(l)}
+			\arrow["{f_k\otimes\bigotimes_{i=1}^kf_{n_i}}"', from=1-1, to=1-2]
+			\arrow["{\circ^P_{k;n_1,\cdots,n_k}}", from=1-1, to=2-1]
+			\arrow["{\circ^Q_{k;n_1,\cdots,n_k}}", from=1-2, to=2-2]
+			\arrow["{f_l}"', from=2-1, to=2-2]
+		\end{tikzcd}\]
+		\item The $S_n$-actions are preserved, i.e. for all $n\in\bN_{\ge1}$, $\sigma\in S_n$, $f\circ(-\cdot^P\sigma)=(-\cdot^Q\sigma)\circ f$.
+	\end{enumerate}
 \end{definition}
