@@ -85,7 +85,7 @@ A monoidal functor that happens to be an equivalence of categories is called an 
 	$(\sC,\otimes,\mathbf{1},\alpha,\lambda,\rho)$, there exists a \emph{strict} monoidal category $(\sC',\otimes',\mathbf{1}',\alpha',\lambda',\rho')$ and an equivalence of monoidal categories $L:\sC\to\sC'$.
 \end{theorem}
 \begin{proof}
-	see \cite{Etingof} from the 2009 lecture notes to "Topics in Lie Theory".
+	see pg. 20 of \cite{Etingof} from the 2009 lecture notes to "Topics in Lie Theory".
 	% Let $\sC'$ be pairs $(F,c)$ where $F$ is an endofunctor of $\sC$, and $c:F(-)\otimes\id_\sC\to F(-\otimes\id_\sC)$ is a natural isomorphism. Then $\sC'$ is strict, and we can construct an equivalence of monoidal categories $L:\sC\to\sC'$ by left multiplication:
 	% \begin{enumerate}
 	% 	\item For all $X\in\Obj(\sC)$, $L(X)\defeq X\otimes-$.
@@ -97,7 +97,7 @@ The next theorem is a corollary of Mac Lane's Strictness Theorem.
 	Suppose $P$ and $P'$ are parenthesizations of $X_1\otimes\cdots\otimes X_n$ with arbitrary insertions of $\mathbf{1}$, and $f,g:P\to P'$ are isomorphisms built by composing associator and unitor components, then $f=g$.
 \end{theorem}
 \begin{proof}
-	see \cite{Etingof_2009}
+	see pg. 1 of \cite{Etingof_2009}
 \end{proof}
 \section{\texorpdfstring{The Operad $\PaB$ of Parenthesized Braids}{The Operad PaB of Parenthesized Braids}}
 Operads are an unbiased way of keeping track of $n$-ary operations and how they compose. The "elements" of $P(n)$, we imagine to be corollas, i.e., rooted trees of depth 1 with $n+1$ half-edges. We can treat $\otimes$ in this "unbiased" way (i.e. ignoring how products are parenthesized, and products with units) because of Mac Lane's Coherence Theorem \ref{MacLaneCoherenceThm}.
@@ -106,7 +106,7 @@ Operads are an unbiased way of keeping track of $n$-ary operations and how they 
 	% $(\sC,\otimes,\mathbf{1},a,l,r,b)$ (i.e. a braided monoidal category such that $b\circ b=\id_\sC$)
 	is a collection of objects $\left\{ P(n) \right\}_n$, with operadic composition
 	\[c_{m;n_1,\cdots,n_m}:P(m)\otimes P(n_1)\otimes\cdots\otimes P(n_m)\to P(n_1+\cdots+n_m)\]
-	such that 1. and 2. of following are satisfied. If each object $P(n)$ has a right $S_n$-action ($S_n$ being the $n$th symmetric group), and 3. is staisfied, then $P$ is a \emph{symmetric operad}
+	such that 1. and 2. of following are satisfied. If each object $P(n)$ has a right $S_n$-action ($S_n$ being the $n$th symmetric group), and 3. is staisfied, then $P$ is a \emph{symmetric operad}, which is what "operad" refers to from now on.
 	\begin{enumerate}
 		\item Associativity: if
 			\begin{enumerate}
@@ -159,12 +159,12 @@ Operads are an unbiased way of keeping track of $n$-ary operations and how they 
 (where $s(-)$ is the isomorphism given by $s$ permuting the $n$ factors of $\bigotimes_{i=1}^nP(m_i)$)
 	\end{enumerate}
 \end{definition}
-\begin{definition}[braided operad]
-	This is theorem 4.3.6 from \cite{Yau_2021} reduced to the 1-coloured case.
-\end{definition}
-\begin{remark}
-	Symmetric operads are special cases of braided operads, where $b\in B(n)$ acts via its underlying permutation $\bar{b}$.
-\end{remark}
-\begin{definition}[(braided) operad morphism]
-	A morphism $f:P\to Q$ of braided operads is a collection of maps $\left\{ f_n:P(n)\to Q(n) \right\}_{n}$ such that
+% \begin{definition}[braided operad]
+% 	This is theorem 4.3.6 from \cite{Yau_2021} reduced to the 1-coloured case.
+% \end{definition}
+% \begin{remark}
+% 	Symmetric operads are special cases of braided operads, where $b\in B(n)$ acts via its underlying permutation $\bar{b}$.
+% \end{remark}
+\begin{definition}[operad morphism]
+	A morphism $f:P\to Q$ of operads is a collection of maps $\left\{ f_n:P(n)\to Q(n) \right\}_{n}$ such that 
 \end{definition}
