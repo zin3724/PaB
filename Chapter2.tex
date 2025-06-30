@@ -116,7 +116,9 @@ Operads are an unbiased way of keeping track of $n$-ary operations and how they 
 			\item $\sum_{i=1}^k m_i=m$,
 			\end{enumerate}
 		then the following commutes
-\[\begin{tikzcd}
+		
+\adjustbox{scale=0.9,center}{
+	\begin{tikzcd}
 	% https://q.uiver.app/#q=WzAsNixbMCwwLCJQKGspXFxvdGltZXNcXGJpZ290aW1lc197aT0xfV5rXFxsZWZ0KFAobV9pKVxcb3RpbWVzXFxiaWdvdGltZXNfe2o9MX1ee21faX1QKG5fe2lfan0pXFxyaWdodCkiXSxbMCwxLCJQKGspXFxvdGltZXNcXGJpZ290aW1lc197aT0xfV5rUFxcbGVmdChuX2lcXHJpZ2h0KSJdLFsyLDIsIlAobCkiXSxbMiwwLCJcXGxlZnQoUChrKVxcb3RpbWVzXFxiaWdvdGltZXNfe2k9MX1ee2t9UChtX2kpXFxyaWdodClcXG90aW1lc1xcbGVmdChcXGJpZ290aW1lc197aT0xfV5rXFxiaWdvdGltZXNfe2o9MX1ee21faX1QKG5fe2lfan0pXFxyaWdodCkiXSxbMiwxLCJQKG0pXFxvdGltZXNcXGxlZnQoXFxiaWdvdGltZXNfe2k9MX1ea1xcYmlnb3RpbWVzX3tqPTF9XnttX2l9UChuX3tpX2p9KVxccmlnaHQpIl0sWzAsMiwiUChsKSJdLFswLDEsIlxcaWRfXFxzQ1xcb3RpbWVzXFxiaWdvdGltZXNfe2k9MX1ea2Nfe21faTtuX3tpXzF9LFxcY2RvdHMsbl97aV97bV9pfX19Il0sWzAsMywiXFxjb25nIiwyXSxbMyw0LCJcXGNpcmNfe2s7bV8xLFxcY2RvdHMsbV9rfVxcb3RpbWVzXFxpZF9cXHNDXntcXG90aW1lcyBtfSIsMl0sWzQsMiwiXFxjaXJjX3ttO25fezFfMX0sXFxjZG90cyxuX3trX3sobV9rKX19fSIsMl0sWzEsNSwiXFxjaXJjX3trO25fMSxcXGNkb3RzLG5fa30iXSxbNSwyLCI9Il1d
 	{P(k)\otimes\bigotimes_{i=1}^k\left(P(m_i)\otimes\bigotimes_{j=1}^{m_i}P(n_{i_j})\right)} && {\left(P(k)\otimes\bigotimes_{i=1}^{k}P(m_i)\right)\otimes\left(\bigotimes_{i=1}^k\bigotimes_{j=1}^{m_i}P(n_{i_j})\right)} \\
 	{P(k)\otimes\bigotimes_{i=1}^kP\left(n_i\right)} && {P(m)\otimes\left(\bigotimes_{i=1}^k\bigotimes_{j=1}^{m_i}P(n_{i_j})\right)} \\
@@ -127,7 +129,8 @@ Operads are an unbiased way of keeping track of $n$-ary operations and how they 
 	\arrow["{\circ_{k;n_1,\cdots,n_k}}", from=2-1, to=3-1]
 	\arrow["{\circ_{m;n_{1_1},\cdots,n_{k_{(m_k)}}}}"', from=2-3, to=3-3]
 	\arrow["{=}", from=3-1, to=3-3]
-\end{tikzcd}\]
+	\end{tikzcd}
+}
 		\item Unit: there exists a map $e:\mathbf{1}\to P(1)$ such that the following hold for all $n$
 \[\begin{tikzcd}
 	% https://q.uiver.app/#q=WzAsNCxbMCwwLCJQKG4pIl0sWzEsMCwiXFxtYXRoYmZ7MX1cXG90aW1lcyBQKG4pIl0sWzIsMCwiUCgxKVxcb3RpbWVzIFAobikiXSxbMywwLCJQKG4pIl0sWzAsMSwiXFxsYW1iZGFeey0xfSJdLFsxLDIsImVcXG90aW1lc1xcaWRfXFxzQyJdLFsyLDMsIlxcY2lyY197MTtufSJdLFswLDMsIj0iLDIseyJjdXJ2ZSI6Mn1dXQ==
@@ -160,8 +163,13 @@ Operads are an unbiased way of keeping track of $n$-ary operations and how they 
 (where $(-)\sigma$ is the isomorphism given by $\sigma$ permuting the $n$ factors of $\bigotimes_{i=1}^nP(m_i)$)
 	\end{enumerate}
 \end{definition}
-\begin{example}[the endomorphism operad]
-	If $(\sC,\otimes,\mathbf{1},\alpha,\lambda,\rho,\beta)$ is a braided monoidal category, then $\End(\sC) $
+\begin{example}[the endomorphism operad in $\Cat$]
+	If $(\sC,\otimes,\mathbf{1},\alpha,\lambda,\rho,\beta)$ is a braided monoidal category, then the endomorphism operad, defined by $\End(\sC)(n)\defeq\Fun\left( \sC^{\times n},\sC \right)$ for $n\in\bN_{\ge0}$, is a symmetric operad, with 
+	\begin{enumerate}
+	\item $\id_\sC$ as the unit,
+	\item the standard composition as the circle product,
+	\item $\sigma\in S_n$ acting on each element $\theta\in\Fun(\sC^{\times n},\sC)$ by permuting the inputs, i.e. $\theta\cdot\sigma(x_1,\cdots,x_n)=\theta(x_{\sigma^{-1}(1)},\cdots,x_{\sigma^{-1}(n)})$.
+	\end{enumerate}
 \end{example}
 % \begin{definition}[braided operad]
 % 	This is theorem 4.3.6 from \cite{Yau_2021} reduced to the 1-coloured case.
