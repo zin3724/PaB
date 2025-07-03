@@ -85,7 +85,7 @@ A monoidal functor that happens to be an equivalence of categories is called an 
 	$(\sC,\otimes,\mathbf{1},\alpha,\lambda,\rho)$, there exists a \emph{strict} monoidal category $(\sC',\otimes',\mathbf{1}',\alpha',\lambda',\rho')$ and an equivalence of monoidal categories $L:\sC\to\sC'$.
 \end{theorem}
 \begin{proof}
-	see pg. 20 of \cite{Etingof} from the 2009 lecture notes to "Topics in Lie Theory".
+	see p.20 of \cite{Etingof} from the 2009 lecture notes to "Topics in Lie Theory".
 	% Let $\sC'$ be pairs $(F,c)$ where $F$ is an endofunctor of $\sC$, and $c:F(-)\otimes\id_\sC\to F(-\otimes\id_\sC)$ is a natural isomorphism. Then $\sC'$ is strict, and we can construct an equivalence of monoidal categories $L:\sC\to\sC'$ by left multiplication:
 	% \begin{enumerate}
 	% 	\item For all $X\in\Obj(\sC)$, $L(X)\defeq X\otimes-$.
@@ -97,7 +97,7 @@ The next theorem is a corollary of Mac Lane's Strictness Theorem.
 	Suppose $P$ and $P'$ are parenthesizations of $X_1\otimes\cdots\otimes X_n$ with arbitrary insertions of $\mathbf{1}$, and $f,g:P\to P'$ are isomorphisms built by composing associator and unitor components, then $f=g$.
 \end{theorem}
 \begin{proof}
-	see pg. 1 of \cite{Etingof_2009}
+	see p.1 of \cite{Etingof_2009}
 \end{proof}
 
 \section{\texorpdfstring{The Operad $\PaB$ of Parenthesized Braids}{The Operad PaB of Parenthesized Braids}}
@@ -107,7 +107,7 @@ Operads are an unbiased way of keeping track of $n$-ary operations and how they 
 	% $(\sC,\otimes,\mathbf{1},a,l,r,b)$ (i.e. a braided monoidal category such that $b\circ b=\id_\sC$)
 	is a collection of objects $\left\{ P(n) \right\}_n$, with operadic composition
 	\[c_{m;n_1,\cdots,n_m}:P(m)\otimes P(n_1)\otimes\cdots\otimes P(n_m)\to P(n_1+\cdots+n_m)\]
-	such that 1. and 2. of following are satisfied. If each object $P(n)$ has a right $S_n$-action ($S_n$ being the $n$th symmetric group), and 3. is staisfied, then $P$ is a \emph{symmetric operad}, which is what "operad" refers to from now on.
+	such that 1. and 2. of following are satisfied. If each object $P(n)$ has a right $\symgrp_n$-action ($\symgrp_n$ being the $n$th symmetric group), and 3. is staisfied, then $P$ is a \emph{symmetric operad}, which is what "operad" refers to from now on.
 	\begin{enumerate}
 		\item Associativity: if
 			\begin{enumerate}
@@ -148,7 +148,7 @@ Operads are an unbiased way of keeping track of $n$-ary operations and how they 
 	\arrow["{\id_\sC\otimes e^{\otimes n}}", from=1-2, to=1-3]
 	\arrow["{\circ_{n;1,\cdots,1}}", from=1-3, to=1-4]
 \end{tikzcd}\]
-		\item Equivariance: the right action $-\cdot\sigma:P(n)\to P(n)$ of $\sigma\in S_n$ on $P(n)$ is given by $\sigma$ permuting the $n$ inputs of each "element" of $P(n)$, so that on operadic composition maps, we have
+		\item Equivariance: the right action $-\cdot\sigma:P(n)\to P(n)$ of $\sigma\in \symgrp_n$ on $P(n)$ is given by $\sigma$ permuting the $n$ inputs of each "element" of $P(n)$, so that on operadic composition maps, we have
 		\[\circ_{n;m_1,\cdots,m_n}\circ(-\cdot\sigma) = \circ_{n;m_{\sigma^{-1}(1)},\cdots,m_{\sigma^{-1}(n)}},\]
 		then equivariance is the condition that the following commutes
 \[\begin{tikzcd}
@@ -163,13 +163,32 @@ Operads are an unbiased way of keeping track of $n$-ary operations and how they 
 (where $(-)\sigma$ is the isomorphism given by $\sigma$ permuting the $n$ factors of $\bigotimes_{i=1}^nP(m_i)$)
 	\end{enumerate}
 \end{definition}
-\begin{example}[the endomorphism operad in $\Cat$]
-	If $(\sC,\otimes,\mathbf{1},\alpha,\lambda,\rho,\beta)$ is a braided monoidal category, then the endomorphism operad, defined by $\End(\sC)(n)\defeq\Fun\left( \sC^{\times n},\sC \right)$ for $n\in\bN_{\ge0}$, is a symmetric operad, with 
+\begin{example}[the endofunctor operad]
+	If $\sC$ is a category, then the endofunctor operad, defined by $\End(\sC)(n)\defeq\Fun\left( \sC^{\times n},\sC \right)$ for $n\in\bN_{\ge0}$, is a symmetric operad in $(\Cat,\times,\{*\})$, with 
 	\begin{enumerate}
-	\item $\id_\sC$ as the unit,
-	\item the standard composition as the circle product,
-	\item $\sigma\in S_n$ acting on each element $\theta\in\Fun(\sC^{\times n},\sC)$ by permuting the inputs, i.e. $\theta\cdot\sigma(x_1,\cdots,x_n)=\theta(x_{\sigma^{-1}(1)},\cdots,x_{\sigma^{-1}(n)})$.
+	\item $\id_\sC$ as the unit, and $\times$ as the monoidal product.
+	\item the standard composition as the operadic composition,
+	\item $\sigma\in \symgrp_n$ acting on each element $\theta\in\Fun(\sC^{\times n},\sC)$ by permuting the inputs, i.e. $\theta\cdot\sigma(x_1,\cdots,x_n)=\theta(x_{\sigma^{-1}(1)},\cdots,x_{\sigma^{-1}(n)})$.
 	\end{enumerate}
+\end{example}
+The endofunctor operad is a special case of the endomorphism operad ; it is an endomorphism operad in $\left( \Cat,\times,\left\{ * \right\} \right)$, a symmetric monoidal category with internal hom.
+
+\begin{example}[the operad of parenthesized braids]
+	This construction is similar to the one in pp.18-19 of \cite{Fresse_2018}. $\PaB$ is an operad in $\mathbf{Grpd}$ (the category of groupoids).
+	
+	The objects of $\PaB(n)$ are parenthesized permutations of $n$ elements, i.e.
+	\[\Obj(\PaB(n))=\symgrp_n\times M_n,\]
+	where $M_n$ is the set of words of length $n$ in the free magma generated by one element. If $(\sigma,w)\in\PaB(n)$, then for $1\le i\le n$, we label the $i$th factor of $w$ (which must be the generating element) with $\sigma(n)$ to get the parenthesized permutation.
+
+	The morphisms of $\PaB(n)$ are braids from $(\sigma,w)$ to $(\tau,v)$ such that if the $l$ factor of $w$ and the $m$th factor of $v$ are the ends of a strand, then $\sigma(l)=\tau(m)$.
+
+	$\PaB$ has the following operadic properties:
+	\begin{enumerate}
+		\item The unit, which happens to be the only morphism of $\PaB(1)$, is the braid from $(1,x)$ to $(1,x)$.
+		\item The operadic composition is given by cabling:
+		\item The action of $\symgrp_n$ on $\PaB(n)$ is given by $(\sigma,w)\overset{\tau}{\mapsto}(\tau\sigma,w)$ on objects.
+	\end{enumerate}
+	% Each element of $\PaB(n)$ is equivalent to a rooted binary tree with its $n$ leaves labled by a permutation of $\{1,\cdots,n\}$
 \end{example}
 % \begin{definition}[braided operad]
 % 	This is theorem 4.3.6 from \cite{Yau_2021} reduced to the 1-coloured case.
@@ -191,6 +210,9 @@ Operads are an unbiased way of keeping track of $n$-ary operations and how they 
 			\arrow["{\circ^Q_{k;n_1,\cdots,n_k}}", from=1-2, to=2-2]
 			\arrow["{f_l}"', from=2-1, to=2-2]
 		\end{tikzcd}\]
-		\item The $S_n$-actions are preserved, i.e. for all $n\in\bN_{\ge1}$, $\sigma\in S_n$, $f\circ(-\cdot^P\sigma)=(-\cdot^Q\sigma)\circ f$.
+		\item The $\symgrp_n$-actions are preserved, i.e. for all $n\in\bN_{\ge1}$, $\sigma\in \symgrp_n$, $f\circ(-\cdot^P\sigma)=(-\cdot^Q\sigma)\circ f$.
 	\end{enumerate}
+\end{definition}
+\begin{definition}[operad algebra]
+	For an operad $P$ in $(\Cat,\times,\{*\})$, a morphism of operads $P\to\End(\sC)$ gives $\sC$ the structure of a \emph{$P$-algebra}.
 \end{definition}
