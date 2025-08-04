@@ -1,1 +1,1 @@
-Sorry Marcy for missing the meeting, but all I could do was try my best to gather enough math for a coherent introduction about why PaB is important. I will now write out everything in your outline ASAP because I find speedrunning fun.
+
