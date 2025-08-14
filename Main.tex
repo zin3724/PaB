@@ -1,28 +1,7 @@
-%%
-%% Modified by Ricardo Garcia-Rosas to satisfy the rules established by the University of Melbourne's Research Higher Degrees Committee as of 4th of June 2019.
-%% Guidelines can be found at: https://gradresearch.unimelb.edu.au/__data/assets/pdf_file/0004/2027839/Preparation-of-GR-theses-rules.pdf
-%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% IMPORTANT NOTE TO AUTHOR:
-%% As part of the guidelines, the use of the university logo is not permitted. This template contains it to make it easier to find/recognise in the Overleaf Gallery. To make the template compliant please go to 'Thesis.cls' and comment out the \includegraphics command in line 217 (it is clearly highlited).
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%
-%% ----------------------------------------------------------------
-%% Thesis.tex -- MAIN FILE (the one that you compile with LaTeX)
-%% ---------------------------------------------------------------- 
-
-% Set up the document
-\documentclass[a4paper, 12pt, oneside]{Thesis}  % Use the "Thesis" style, based on the ECS Thesis style by Steve Gunn
-%
-% Put your figures in this directory
-\graphicspath{Figures/}  % Location of the graphics files (set up for graphics to be in PDF format)
-%
-
-% Include any extra LaTeX packages required
-\usepackage[square, numbers, comma, sort&compress]{natbib}  % Use the "Natbib" style for the references in the Bibliography
+\documentclass[a4paper, 12pt,openany,oneside]{amsbook}
+\usepackage[square, numbers, comma, sort&compress]{natbib} 
 \usepackage{verbatim}  % Needed for the "comment" environment to make LaTeX comments
 \usepackage{vector}  % Allows "\bvec{}" and "\buvec{}" for "blackboard" style bold vectors in maths
-\hypersetup{urlcolor=blue, colorlinks=true}  % Colours hyperlinks in blue, but this can be distracting if there are many links.
 
 %%%%%%%%%%%%%% my personal preamble %%%%%%%%%%%%%%%%
 \usepackage[T1]{fontenc}
@@ -36,7 +15,7 @@
     cells={nodes={scale=#1}}}}
 % \setlength{\parindent}{0in}
 \makeatletter
-\DeclareMathOperator{\oeq}{\mathbin{\mathpalette\make@circled=}}%get your circled symbols here!
+\DeclareMathOperator{\oeq}{\mathbin{\mathpalette\make@circled=}}%circled symbols
 \DeclareMathOperator{\oneq}{\mathbin{\mathpalette\make@circled\neq}}
 \newcommand{\make@circled}[2]{%
   \ooalign{$\m@th#1\smallbigcirc{#1}$\cr\hidewidth$\m@th#1#2$\hidewidth\cr}%
@@ -103,21 +82,28 @@
 
 %AMS-style theorem environments:
 
-%\theoremstyle{plain} default
+\theoremstyle{plain} %default
 
+\newtheorem{theorem}{Theorem}
 \newtheorem*{theorem*}{Theorem}
 
+\newtheorem{proposition}[theorem]{Proposition}
 \newtheorem*{proposition*}{Proposition}
 
 \theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
 \newtheorem*{definition*}{Definition}
+\newtheorem{example}[theorem]{Example}
 \newtheorem*{example*}{Example}
+\newtheorem{lemma}[theorem]{Lemma}
 \newtheorem*{lemma*}{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
 \newtheorem*{corollary*}{Corollary}
 \newtheorem{exercise}{Exercise}
 \newtheorem*{exercise*}{Exercise}
 
 \theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
 \newtheorem*{remark*}{Remark}
 \newtheorem{hint}[theorem]{Hint}
 \newtheorem*{hint*}{Hint}
@@ -144,31 +130,12 @@
 % ----------------------------------------------------------------
 \begin{document}
 \frontmatter      % Begin Roman style (i, ii, iii, iv...) page numbering
-
-%
-\UNIVERSITY{{THE UNIVERSITY OF MELBOURNE }}    
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Update your department and school here:
-\department{{Faculty of Science}}
-\school{{School of Mathematics and Statistics}}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Set up the Title Page
-% Change your thesis title and your information here
 \title  {The Grothendieck-Teichm\"uller Group and the Operad of Parenthesized Braids}
-\authors  {\texorpdfstring
-            {\href{https://www.github.com/zin3724}{Yaxin Li}}
-            {Yaxin Li}
-            }
-\addresses  {\groupname\\\deptname\\\univname}  % Do not change this here, instead these must be set in the "Thesis.cls" file, please look through it instead
-\date       {\today}
-\subject    {}
-\keywords   {}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+\author{\texorpdfstring
+            {\href{https://www.github.com/zin3724}{Yaxin Li}}{Yaxin Li}
+        }
+\date{\today}
 \maketitle
 %% ----------------------------------------------------------------
 
@@ -182,28 +149,7 @@
 \pagestyle{fancy}  % Finally, use the "fancy" page style to implement the FancyHdr headers
 \setlength{\headheight}{15pt}
 \setstretch{1.0}
-%% ----------------------------------------------------------------
-% The Abstract Page
-\input{Abstract.tex}
-\clearpage  % Abstract ended, start a new page
-
-%% ----------------------------------------------------------------
-% Declaration Page required for the Thesis, your institution may give you a different text to place here
-% \input{Declaration.tex}
-% \clearpage  % Declaration ended, now start a new page
-
-%% ----------------------------------------------------------------
-% Preface Page required for the Thesis, your institution may give you a different text to place here
-% \input{Preface.tex}
-% \clearpage  % Preface ended, now start a new page
-
-%% ----------------------------------------------------------------
-% % The Acknowledgements page, for thanking everyone
-% % \setstretch{1.3}  % Reset the line-spacing to 1.3 for body text (if it has changed)
-% \input{Acknowledgements.tex}
-% \clearpage  % End of the Acknowledgements
-% %% ----------------------------------------------------------------
-
+%% ----------
 \pagestyle{fancy}  %The page style headers have been "empty" all this time, now use the "fancy" headers as defined before to bring them back
 
 
@@ -211,58 +157,8 @@
 \lhead{\emph{Contents}}  % Set the left side page header to "Contents"
 \tableofcontents  % Write out the Table of Contents
 
-%% ----------------------------------------------------------------
-% \lhead{\emph{List of Figures}}  % Set the left side page header to "List if Figures"
-% \listoffigures  % Write out the List of Figures
-
-%% ----------------------------------------------------------------
-% \lhead{\emph{List of Tables}}  % Set the left side page header to "List of Tables"
-% \listoftables  % Write out the List of Tables
-
-%% ----------------------------------------------------------------
-% % \setstretch{1.5}  % Set the line spacing to 1.5, this makes the following tables easier to read
-% \clearpage  % Start a new page
-% \lhead{\emph{Abbreviations}}  % Set the left side page header to "Abbreviations"
-% \listofsymbols{ll}  % Include a list of Abbreviations (a table of two columns)
-% {
-% % \textbf{Acronym} & \textbf{W}hat (it) \textbf{S}tands \textbf{F}or \\
-% \textbf{LAH} & \textbf{L}ist \textbf{A}bbreviations \textbf{H}ere \\
-
-% }
-
-% %% ----------------------------------------------------------------
-% \clearpage  % Start a new page
-% \lhead{\emph{Constants}}  % Set the left side page header to "Physical Constants"
-% \listofconstants{lrcl}  % Include a list of Physical Constants (a four column table)
-% {
-% % Constant Name & Symbol & = & Constant Value (with units) \\
-% Speed of Light & $c$ & $=$ & $2.997\ 924\ 58\times10^{8}\ \mbox{ms}^{-\mbox{s}}$ (exact)\\
-
-% }
-
-%% ----------------------------------------------------------------
-% \clearpage  %Start a new page
-% \lhead{\emph{Symbols}}  % Set the left side page header to "Symbols"
-
-%   % Include a list of Symbols (a three column table)
-% \listofnomenclature{lll}
-% {
-% % symbol & name & unit \\
-% $a$ & distance & m \\
-% $P$ & power & W (Js$^{-1}$) \\
-% {}& & \\ % Gap to separate the Roman symbols from the Greek
-% $\omega$ & angular frequency & rads$^{-1}$ \\
-% }
-% %% ----------------------------------------------------------------
-% End of the pre-able, contents and lists of things
-
-
-%% ----------------------------------------------------------------
 \mainmatter	  % Begin normal, numeric (1,2,3...) page numbering
 \pagestyle{fancy}  % Return the page headers back to the "fancy" style
-
-% Include the chapters of the thesis, as separate files
-% Just uncomment the lines as you write the chapters
 
 \setstretch{1.0}  % Set the line spacing to whatever
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% the body %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -304,5 +200,4 @@
 \bibliographystyle{alpha}  % Use the "alpha" BibTeX style for formatting the Bibliography so that citations don't look like equivalence classes of numbers
 \bibliography{Bibliography.bib}  % The references (bibliography) information are stored in the file named "Bibliography.bib"
 
-\end{document}  % The End
-%% ----------------------------------------------------------------
+\end{document}
